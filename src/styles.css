@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;500&display=swap');
+
+:root{
+    --bgColor: #FFF9F5;
+    --firstColor: #E1742E;
+    --secondColor: #171064;
+    --btnReadyOrder: #25CB63;
+    --bgOrder: #EDEDED;
+    --lightGray: #FCFCFC;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend', sans-serif;;
+}
+
+body{
+    background-color: var(--bgColor);
+}
