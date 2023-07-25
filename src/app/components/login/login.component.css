@@ -1,0 +1,63 @@
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexbox-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header{
+    justify-content: start;
+}
+
+.logo{
+    height: 50px;
+    width: 60px;
+}
+
+header p, section p {
+    color: var(--secondColor);
+}
+
+section{
+    padding: 0px 10px;
+}
+
+section img {
+    height: 170px;
+    margin: 40px 0px 20px 0px;
+}
+
+section p {
+    font-weight: 300;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+form input{
+    height: 45px;
+    width: 300px;
+    text-align: center;
+    font-size: 1em;
+    background-color: var(--bgOrder);
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-start-order{
+    display: flex;
+    height: 45px;
+    width: 220px;
+    background-color: var(--firstColor);
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    
+}
