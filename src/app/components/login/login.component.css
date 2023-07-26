@@ -12,19 +12,6 @@
     gap: 20px;
 }
 
-.header{
-    justify-content: start;
-}
-
-.logo{
-    height: 50px;
-    width: 60px;
-}
-
-header p, section p {
-    color: var(--secondColor);
-}
-
 section{
     padding: 0px 10px;
 }
@@ -38,6 +25,7 @@ section p {
     font-weight: 300;
     font-size: 1.5em;
     text-align: center;
+    color: var(--secondColor);
 }
 
 form input{
@@ -59,5 +47,4 @@ form input{
     text-align: center;
     text-decoration: none;
     color: #FFFFFF;
-    
 }
