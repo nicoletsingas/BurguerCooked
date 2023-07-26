@@ -12,6 +12,10 @@
     gap: 20px;
 }
 
+.container-login{
+    position: relative;
+}
+
 section{
     padding: 0px 10px;
 }
@@ -38,6 +42,14 @@ form input{
     border: none;
 }
 
+form input:focus{
+    outline: 2px solid var(--firstColor);
+}
+
+form  input::placeholder{
+    color: #00000073;
+}
+
 .btn-start-order{
     display: flex;
     height: 45px;
@@ -47,4 +59,10 @@ form input{
     text-align: center;
     text-decoration: none;
     color: #FFFFFF;
+    transition: .4s ease-in-out;
+}
+
+.btn-start-order:hover{
+    background-color: var(--secondColor);
+    
 }
