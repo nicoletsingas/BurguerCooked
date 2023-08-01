@@ -7,13 +7,14 @@
     --secondColor: #171064;
     --btnReadyOrder: #25CB63;
     --bgOrder: #EDEDED;
-    --lightGray: #FCFCFC;
+    --lightGray: #f1f1f1;
 }
 
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Lexend', sans-serif;;
+    font-family: 'Lexend', sans-serif;
+    box-sizing: border-box;
 }
 
 body{

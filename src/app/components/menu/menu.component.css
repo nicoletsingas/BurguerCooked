@@ -1,0 +1,57 @@
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-menu{
+    position: relative;
+    padding: 0px 5px;
+}
+
+.menu-title{
+    margin-left: 10px;
+}
+
+.menu{
+    background-color: var(--lightGray);
+    height: 80px;
+    margin-top: 5px;
+    gap: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;   
+}
+
+.circle-1{
+    position: absolute;
+    top: -20px;
+    left: -60px;
+    z-index: -1;
+    background-color: #e1732e62;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.btn{
+    height: 45px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+.breakfast{
+    background-color: var(--firstColor);
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.lunch{
+    border: 1px solid var(--firstColor);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--firstColor);
+    background-color: #FFFFFF;
+}
