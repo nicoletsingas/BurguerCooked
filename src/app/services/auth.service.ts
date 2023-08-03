@@ -17,8 +17,8 @@ export class AuthService {
 
     console.log(response);
 
-    if (response.token) {
-      localStorage.setItem('token', response.token);
+    if (response.accessToken) {
+      localStorage.setItem('token', response.accessToken);
       this.isUserAuthenticated = true;
       return true;
     } else {
@@ -26,13 +26,17 @@ export class AuthService {
     }
   }
 
+  isUserLoggedIn(): boolean{
+    return this.isUserAuthenticated || localStorage.getItem('token') !== null ;
+  }
+
   // Armazenar o token no localStorage após o login
   storageToken(token: string) {
-    localStorage.setItem('authToken', token);
+    localStorage.setItem('token', token);
   }
 
   logout() {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('token');
   }
 
 }
