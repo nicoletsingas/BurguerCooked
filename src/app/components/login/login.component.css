@@ -60,9 +60,10 @@ form  input::placeholder{
     text-decoration: none;
     color: #FFFFFF;
     transition: .4s ease-in-out;
+    font-size: 1em;
+    border: none;
 }
 
 .btn-start-order:hover{
     background-color: var(--secondColor);
-    
 }

@@ -2,10 +2,10 @@
   <section class="flexbox-column">
     <img src="../../../assets/combo-lanches.png" alt="hamburguer-combo">
     <p>Antes de começar, faça seu login!</p>
-    <form class="flexbox-column">
-      <input type="email" name="" id="" placeholder="Insira seu endereço de email">
-      <input type="password" name="" id="" placeholder="Insira sua senha">
+    <form class="flexbox-column" (ngSubmit)="onLogin()">
+      <input type="email" id="email-input" name="email" [(ngModel)]="email" placeholder="Insira seu endereço de email">
+      <input type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="Insira sua senha">
+      <button class="btn-start-order flexbox">Iniciar pedido</button>
     </form>
-    <a (click)='login()' href="#" class="btn-start-order flexbox">Iniciar pedido</a>
   </section>
 </main>
