@@ -67,3 +67,7 @@ form  input::placeholder{
 .btn-start-order:hover{
     background-color: var(--secondColor);
 }
+
+.erro-login{
+    color: #ff0000;
+}
