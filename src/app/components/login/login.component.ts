@@ -10,20 +10,24 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  errorLogin: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
   
   async onLogin() {
     try {
+      this.errorLogin = false;
       const isUserLoggedIn = await this.authService.login(this.email, this.password);
       if (isUserLoggedIn) {
         console.log('Login com sucesso');
         this.router.navigate(['/menu']);
       } else {
+        this.errorLogin = true;
         throw new Error('Login inválido');
       }
     } catch (error) {
       console.error('Erro no login:', error);
+      this.errorLogin = true;
     }
   }
 }
