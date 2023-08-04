@@ -6,4 +6,12 @@
   </div>
   <div class="circle-1"></div>
   <div class="circle-2"></div>
+
+  <div *ngFor="let product of products" class="menu-almoço">
+    <div class="information-product">
+      <h3> {{product.name}}</h3>
+      <p>R$ {{product.price}}</p>
+    </div>
+    <img [src]="product.image" alt="{{product.name}}">
+  </div>
 </section>

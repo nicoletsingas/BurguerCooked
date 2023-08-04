@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +35,10 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  // Remover o token após logout
   logout() {
     localStorage.removeItem('token');
   }
+
 
 }
