@@ -1,17 +1,20 @@
 <section class="container-menu">
   <span class="menu-title">Menu</span>
-  <div class="menu flexbox">
+  <div class="menu flexbox boxshadow">
     <button class="btn breakfast">Café da manhã</button>
     <button class="btn lunch">Almoço</button>
   </div>
   <div class="circle-1"></div>
   <div class="circle-2"></div>
 
-  <div *ngFor="let product of products" class="menu-almoço">
+  <div *ngFor="let product of products" class="menu-lunch boxshadow flexbox">
     <div class="information-product">
-      <h3> {{product.name}}</h3>
-      <p>R$ {{product.price}}</p>
+      <div class="product-titles">
+        <h3 class="product-name">{{product.id}}. {{product.name}}</h3>
+        <p class="product-details">{{product.details}}</p>
+      </div>
+      <p class="product-price">R$ {{product.price}}</p>
     </div>
-    <img [src]="product.image" alt="{{product.name}}">
+    <img [src]="product.image" alt="{{product.name}}" class="product-img">
   </div>
 </section>
