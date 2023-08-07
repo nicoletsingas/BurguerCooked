@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MenuComponent implements OnInit{
   products: any[] = []; // Tipo any[] para acomodar os dados da API
+  currentProductType: string = 'Café da manhã'; 
+  filteredProducts: any[] = [];
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -23,10 +25,16 @@ export class MenuComponent implements OnInit{
       const apiURLProducts = 'http://localhost:8080/products';
       this.http.get<any[]>(apiURLProducts, { headers }).subscribe((data) => {
         this.products = data;
+        this.filterProductsByType(this.currentProductType);
       },
       (error) => {
         console.error('Erro ao obter produtos da API:', error)
       });
     }
+  }
+
+  filterProductsByType(type: string){
+    this.currentProductType = type;
+    this.filteredProducts = this.products.filter(product => product.type === type);
   }
 }
