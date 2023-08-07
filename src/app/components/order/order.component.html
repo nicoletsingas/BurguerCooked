@@ -1,0 +1,39 @@
+<section class="container-order">
+  <img (click)="onCloseClick()" src="../../../assets/close.svg" alt="icon-close">
+  <h3>Resumo do pedido</h3>
+  <div class="client-data-inputs">
+    <label for="">Cliente:</label>
+    <input type="text" placeholder="Insira o nome do cliente">
+    <span>Mesa:</span>
+    <select name="table" id="">
+      <option value="001">001</option>
+      <option value="002">002</option>
+      <option value="003">003</option>
+      <option value="004">004</option>
+    </select>
+    <label for="">Atendente:</label>
+    <input type="text" placeholder="Insira seu nome atendente">
+  </div>
+  <div class="product-container">
+    <p></p>
+    <p></p>
+    <img src="" alt="product image">
+  </div>
+  <div class="container-total-order">
+    <div class="subtotal">
+      <span class="span-gray">Subtotal</span>
+      <span>R$</span>
+    </div>
+    <div class="tax10%">
+      <span class="span-gray">Tax 10%</span>
+      <span>R$</span>
+    </div>
+    <div class="total-price">
+      <span>Total</span>
+      <span>R$</span>
+    </div>
+  </div>
+  <button>Enviar Pedido</button>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+</section>
