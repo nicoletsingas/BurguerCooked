@@ -5,7 +5,7 @@
 }
 
 .header{
-    justify-content: start;
+    justify-content: space-between;
     margin-bottom: 50px;
 }
 
@@ -16,4 +16,9 @@
 
 header p, section p {
     color: var(--secondColor);
+}
+
+.icons img {
+    height: 40px;
+    margin-right: 5px;
 }
