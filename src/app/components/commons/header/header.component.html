@@ -1,4 +1,13 @@
 <header class="flexbox header">
-    <img src="../../../assets/logo.png" alt="logo-3d-burguer" class="logo">
-    <p>3D Burguer</p>
+    <div class="flexbox">
+        <img src="../../../assets/logo.png" alt="logo-3d-burguer" class="logo">
+        <p>3D Burguer</p>
+    </div>
+    <div *ngIf="isLoggedIn && userEmail === 'garconete@3dburguer.com'" class="icons flexbox">
+        <img src="../../../../assets/cart.svg" alt="cart-icon">
+        <img (click)="logout()" src="../../../../assets/logout-icon-3.svg" alt="logout-icon">
+    </div>
+    <div *ngIf="isLoggedIn && userEmail === 'cozinha@3dburguer.com' || isLoggedIn && userEmail === 'admin@3dburguer.com' " class="icons flexbox">
+        <img (click)="logout()" src="../../../../assets/logout-icon-3.svg" alt="logout-icon">
+    </div>
 </header>

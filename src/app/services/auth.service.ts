@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private isUserAuthenticated: boolean = false;
   private apiUrl = 'http://localhost:8080/login';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   async login (email: string, password: string): Promise<boolean> {
     const userLogin = { email, password }
@@ -18,8 +18,8 @@ export class AuthService {
     console.log(response);
 
     if (response.accessToken) {
-      localStorage.setItem('token', response.accessToken);
-      this.isUserAuthenticated = true;
+      localStorage.setItem('token', response.accessToken); 
+      localStorage.setItem('userEmail', email); 
       return true;
     } else {
       throw new Error('Login inválido');
@@ -27,7 +27,12 @@ export class AuthService {
   }
 
   isUserLoggedIn(): boolean{
-    return this.isUserAuthenticated || localStorage.getItem('token') !== null ;
+    return localStorage.getItem('token') !== null ;
+  }
+
+  // Obter o email do usuario logado
+  getUserEmail(): string | null {
+    return localStorage.getItem('userEmail');
   }
 
   // Armazenar o token no localStorage após o login
@@ -38,7 +43,9 @@ export class AuthService {
   // Remover o token após logout
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
+    console.log('Logout com sucesso');
+    this.router.navigate(['']);
   }
-
 
 }
