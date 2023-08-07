@@ -49,15 +49,7 @@
     border-radius: 10px;
 }
 
-.breakfast{
-    background-color: var(--firstColor);
-    border: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.lunch{
+.breakfast, .lunch{
     border: 1px solid var(--firstColor);
     font-size: 16px;
     font-weight: 400;
@@ -65,11 +57,19 @@
     background-color: #FFFFFF;
 }
 
-.menu-lunch{
-    margin-top: 20px;
+.menu-lunch-breakfast{
+    margin: 20px 0px;
     justify-content: space-between;
     align-items: start;
     padding: 7px;
+}
+
+.active{
+    background-color: var(--firstColor);
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .information-product{
