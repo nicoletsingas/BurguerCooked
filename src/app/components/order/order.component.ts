@@ -6,9 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent {
-  @Output() closeOrder = new EventEmitter<void>();
+  @Output() closeOrder = new EventEmitter<boolean>();
 
   onCloseClick() {
-    this.closeOrder.emit();
+    this.closeOrder.emit(false);
   }
 }

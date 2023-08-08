@@ -1,11 +1,13 @@
-<section class="container-order">
-  <img (click)="onCloseClick()" src="../../../assets/close.svg" alt="icon-close">
+<section class="container-order flexbox">
+  <div class="close-icon">
+    <img (click)="onCloseClick()" src="../../../assets/close.svg" alt="icon-close">
+  </div>
   <h3>Resumo do pedido</h3>
-  <div class="client-data-inputs">
-    <label for="">Cliente:</label>
-    <input type="text" placeholder="Insira o nome do cliente">
+  <div class="client-data-inputs flexbox">
+    <label for="client">Cliente:</label>
+    <input type="text" placeholder="Insira o nome do cliente" id="client">
     <span>Mesa:</span>
-    <select name="table" id="">
+    <select name="table" id="table">
       <option value="001">001</option>
       <option value="002">002</option>
       <option value="003">003</option>
