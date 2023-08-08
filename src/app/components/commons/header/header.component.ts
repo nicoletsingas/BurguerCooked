@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit{
 
   userEmail: string | null;
   isLoggedIn: boolean = false;
+  showOrderComponent: boolean = false;
   
   constructor(private authService: AuthService){
     this.userEmail = authService.getUserEmail();
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit{
   logout() {
     this.authService.logout();
     this.isLoggedIn = false;
+  }
+
+  toggleOrderComponent(show: boolean) {
+    this.showOrderComponent = show;
   }
 
 }

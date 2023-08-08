@@ -6,11 +6,14 @@ import { HeaderComponent } from './components/commons/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderComponent } from './components/order/order.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
