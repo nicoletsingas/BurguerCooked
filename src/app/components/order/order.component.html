@@ -1,18 +1,18 @@
-<section class="container-order flexbox">
-  <div class="close-icon">
-    <img (click)="onCloseClick()" src="../../../assets/close.svg" alt="icon-close">
-  </div>
+<section class="container-order flexbox-column">
+  <img (click)="onCloseClick()" class="close-icon" src="../../../assets/close.svg" alt="icon-close">
   <h3>Resumo do pedido</h3>
-  <div class="client-data-inputs flexbox">
+  <div class="client-data-inputs flexbox-column">
     <label for="client">Cliente:</label>
     <input type="text" placeholder="Insira o nome do cliente" id="client">
-    <span>Mesa:</span>
-    <select name="table" id="table">
-      <option value="001">001</option>
-      <option value="002">002</option>
-      <option value="003">003</option>
-      <option value="004">004</option>
-    </select>
+    <div class="select-table flexbox">
+      <span>Mesa:</span>
+      <select name="table" id="table">
+        <option value="001">001</option>
+        <option value="002">002</option>
+        <option value="003">003</option>
+        <option value="004">004</option>
+      </select>
+    </div>
     <label for="">Atendente:</label>
     <input type="text" placeholder="Insira seu nome atendente">
   </div>
@@ -21,16 +21,16 @@
     <p></p>
     <img src="" alt="product image">
   </div>
-  <div class="container-total-order">
-    <div class="subtotal">
+  <div class="container-total-order boxshadow flexbox-column">
+    <div class="subtotal flexbox">
       <span class="span-gray">Subtotal</span>
       <span>R$</span>
     </div>
-    <div class="tax10%">
+    <div class="tax10 flexbox">
       <span class="span-gray">Tax 10%</span>
       <span>R$</span>
     </div>
-    <div class="total-price">
+    <div class="total-price flexbox">
       <span>Total</span>
       <span>R$</span>
     </div>

@@ -1,27 +1,122 @@
-.flexbox{
+.flexbox-column{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.boxshadow{
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.226);
+    background-color: var(--lightGray);
+    border-radius: 10px;
+}
+
 .container-order {
     background-color: var(--bgColor);
     width: 100%;
-    align-items: end;
+    position: relative;
+    z-index: 1;
 }
 
 .close-icon{
-    display: flex;
-    align-items: end;
+    align-self: flex-end;
 }
 
 .container-order h3 {
     color: var(--secondColor);
+    margin-bottom: 20px;
 }
 
 .client-data-inputs input{
     background-color: var(--firstColor);
     height: 45px;
     width: 300px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.client-data-inputs input::placeholder{
+   color: rgba(0, 0, 0, 0.50);
+}
+
+.client-data-inputs label{
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+.select-table{
+    align-self: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.select-table select{
+    background-color: var(--firstColor);
+    border-radius: 10px;
+    height: 30px;
+    border: none;
+}
+
+.container-total-order{
+    background-color: var(--lightGray);
+    gap: 20px;
+    padding: 10px 10px 15px 10px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.subtotal, .tax10, .total-price{
+    justify-content: space-between;
+    width: 100%;
+}
+
+.span-gray{
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.total-price{
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+.container-order button{
+    height: 45px;
+    margin-top: 20px;
+    background-color: var(--firstColor);
+    border-radius: 20px;
+    color: #FFFFFF;
+    width: 220px;
+    border: none;
+    transition: ease-in-out .4s;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.container-order button:hover{
+    background-color: var(--secondColor);
+}
+
+.circle-1, .circle-2{
+    position: absolute;
+    top: -80px;
+    right: -25px;
+    background-color: #e1732e44;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle-2{
+    top: 0;
+    right: -80px; 
 }
