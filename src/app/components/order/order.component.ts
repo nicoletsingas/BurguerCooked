@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-order',
@@ -6,9 +7,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent {
-  @Output() closeOrder = new EventEmitter<void>();
 
-  onCloseClick() {
-    this.closeOrder.emit();
-  }
 }

@@ -1,0 +1,27 @@
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-order {
+    background-color: var(--bgColor);
+    width: 100%;
+    align-items: end;
+}
+
+.close-icon{
+    display: flex;
+    align-items: end;
+}
+
+.container-order h3 {
+    color: var(--secondColor);
+}
+
+.client-data-inputs input{
+    background-color: var(--firstColor);
+    height: 45px;
+    width: 300px;
+}
