@@ -98,6 +98,19 @@
     color: var(--secondColor);
 }
 
+.product-pice-quantities{
+    align-self: flex-start;
+    gap: 20px;
+}
+
+.product-quantities img {
+    height: 23px;
+}
+
+.product-quantities span{
+    margin: 0px 10px;
+}
+
 .product-img{
     height: 85px;
     width: 65px;
