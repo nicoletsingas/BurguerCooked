@@ -13,7 +13,14 @@
         <h3 class="product-name">{{product.id}}. {{product.name}}</h3>
         <p class="product-details">{{product.details}}</p>
       </div>
-      <p class="product-price">R$ {{product.price}}</p>
+      <div class="product-pice-quantities flexbox">
+        <p class="product-price">R$ {{product.price}}</p>
+        <div class="product-quantities flexbox">
+          <img (click)="removeProduct(product.id)" src="../../../assets/icon-minus.svg" alt="icon minus">
+          <span>{{ productQuantities[product.id] }}</span>
+          <img (click)="addProduct(product.id)" src="../../../assets/icon-plus.svg" alt="icon plus">
+        </div>
+      </div>
     </div>
     <img [src]="product.image" alt="{{product.name}}" class="product-img">
   </div>
