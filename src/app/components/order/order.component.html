@@ -13,19 +13,26 @@
         <option value="004">004</option>
       </select>
     </div>
-    <label for="">Atendente:</label>
-    <input type="text" placeholder="Insira seu nome atendente">
+    <div class="waiter-name flexbox">
+      <span>Atendente:</span>
+      <span>Gisele</span>
+    </div>
   </div>
   <div *ngFor="let product of addedProducts" class="product-container boxshadow flexbox">
-    <div class="product-name-price">
-      <p>{{ product.product.name }}</p>
-      <p>{{ product.product.price }}</p>
+    <div class="order-summary flexbox">
+      <div class="product-name-price flexbox-column">
+        <span>{{ product.product.name }}</span>
+        <span class="product-price">{{ product.product.price }}</span>
+      </div>
+      <div class="product-quantities flexbox-column">
+        <span>Qnt.</span>
+        <span> {{ product.quantity }}</span>
+      </div>
+      <img [src]="product.product.image" alt="product image">
     </div>
-    <div>
-      <p>Qnt.</p>
-      <p> {{ product.quantity }}</p>
+    <div class="delete-product flexbox">
+      <img src="../../../assets/icon-trash.svg" alt="icon trash">
     </div>
-    <img [src]="product.product.image" alt="product image">
   </div>
   <div class="container-total-order boxshadow flexbox-column">
     <div class="subtotal flexbox">
