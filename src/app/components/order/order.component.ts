@@ -26,4 +26,23 @@ export class OrderComponent implements OnDestroy {
   onCloseClick() {
     this.closeOrder.emit(false);
   }
+
+  calculateSubtotal(): number {
+    return this.addedProducts.reduce((subtotal, item) => {
+      return subtotal + (item.product.price * item.quantity);
+    }, 0);
+  }
+
+  calculateTax(subtotal: number): number {
+    return subtotal * 0.1; //calcular 10% sob o subtotal
+  }  
+
+  calculateTotal(subtotal: number, tax: number): number {
+    return subtotal + tax;
+  }
+
+
+
+
+
 }

@@ -31,4 +31,5 @@ header p, section p {
     bottom: 0;
     z-index: 1;
     background-color: var(--bgColor);
+    overflow-y: auto;
 }
