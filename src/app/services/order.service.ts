@@ -44,5 +44,12 @@ export class OrderService {
     }
   }
 
+  deleteProduct(productId: number) {
+    if (this.addedProducts[productId]) {
+      delete this.addedProducts[productId];
+      this.addedProductSubject.next(this.addedProducts);
+    }
+  }
+
 }
 
