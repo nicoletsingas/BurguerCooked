@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,12 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit{
+ // @Output() productAdded = new EventEmitter<any>();
+
   products: any[] = []; 
   currentProductType: string = 'Café da manhã'; 
   filteredProducts: any[] = [];
   productQuantities: { [productId: number ]: number} = {}
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private authService: AuthService, private orderService: OrderService) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -44,6 +47,9 @@ export class MenuComponent implements OnInit{
 
   addProduct(productId: number){
     this.productQuantities[productId]++;
+    const addedProduct = this.products.find(product => product.id === productId);
+    this.orderService.addProduct(addedProduct);
+    this.orderService.setProductQuantities(this.productQuantities);
   }
 
   removeProduct(productId: number){
@@ -51,6 +57,5 @@ export class MenuComponent implements OnInit{
       this.productQuantities[productId]--;
     }
   }
-
 
 }
