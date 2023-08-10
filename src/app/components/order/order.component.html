@@ -31,21 +31,21 @@
       <img [src]="product.product.image" alt="product image">
     </div>
     <div class="delete-product flexbox">
-      <img src="../../../assets/icon-trash.svg" alt="icon trash">
+      <img (click)="ngOnDestroy()" src="../../../assets/icon-trash.svg" alt="icon trash">
     </div>
   </div>
   <div class="container-total-order boxshadow flexbox-column">
     <div class="subtotal flexbox">
       <span class="span-gray">Subtotal</span>
-      <span>R$</span>
+      <span>R$ {{ calculateSubtotal() | number: '1.2-2'}}</span>
     </div>
     <div class="tax10 flexbox">
       <span class="span-gray">Tax 10%</span>
-      <span>R$</span>
+      <span>R$ {{ calculateTax(calculateSubtotal()) | number: '1.2-2'}}</span>
     </div>
     <div class="total-price flexbox">
       <span>Total</span>
-      <span>R$</span>
+      <span>R$ {{calculateTotal(calculateSubtotal(), calculateTax(calculateSubtotal())) | number: '1.2-2'}}</span>
     </div>
   </div>
   <button>Enviar Pedido</button>

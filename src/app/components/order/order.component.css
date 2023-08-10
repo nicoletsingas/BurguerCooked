@@ -156,6 +156,7 @@
     transition: ease-in-out .4s;
     font-size: 1em;
     font-weight: 300;
+    margin-bottom: 10px;
 }
 
 .container-order button:hover{
