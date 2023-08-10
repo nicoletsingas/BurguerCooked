@@ -55,6 +55,7 @@ export class MenuComponent implements OnInit{
   removeProduct(productId: number){
     if (this.productQuantities[productId] > 0){
       this.productQuantities[productId]--;
+      this.orderService.removeProduct(productId);
     }
   }
 
