@@ -9,7 +9,9 @@ export class OrderService {
   private addedProducts: any[] = [];
   private productQuantities: { [productId: number]: number} = {};
   private addedProductSubject = new BehaviorSubject<any>(null);
+  private productQuantitiesSubject = new BehaviorSubject<{[productId: number]: number}>({});
   addedProduct$ = this.addedProductSubject.asObservable();
+  productQuantities$ = this.productQuantitiesSubject.asObservable();
 
   addProduct(product: any) {
     const productId = product.id;
@@ -18,6 +20,7 @@ export class OrderService {
     } else {
       this.addedProducts[productId] = { product, quantity: 1 };
     }
+    this.updateProductQuantities();
     this.addedProductSubject.next(this.addedProducts);
   }
 
@@ -47,8 +50,17 @@ export class OrderService {
   deleteProduct(productId: number) {
     if (this.addedProducts[productId]) {
       delete this.addedProducts[productId];
+      this.updateProductQuantities();
       this.addedProductSubject.next(this.addedProducts);
     }
+  }
+
+  private updateProductQuantities() {
+    const quantities: {[productIs: number]: number} = {};
+    for (const addedProduct of Object.values(this.addedProducts)) {
+      quantities[addedProduct.product.id] = addedProduct.quantity;
+    }
+    this.productQuantitiesSubject.next(quantities);
   }
 
 }
