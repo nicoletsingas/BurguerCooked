@@ -1,25 +1,33 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit{
- // @Output() productAdded = new EventEmitter<any>();
+export class MenuComponent implements OnInit, OnDestroy{
 
   products: any[] = []; 
   currentProductType: string = 'Café da manhã'; 
   filteredProducts: any[] = [];
-  productQuantities: { [productId: number ]: number} = {}
+  productQuantities: { [productId: number ]: number} = {};
+  private productQuantitiesSubscription: Subscription = Subscription.EMPTY;
 
   constructor(private http: HttpClient, private authService: AuthService, private orderService: OrderService) {}
 
   ngOnInit(): void {
+    this.productQuantitiesSubscription = this.orderService.productQuantities$.subscribe((quantities) => {
+    this.productQuantities = quantities;
+    });
     this.getProducts();
+  }
+
+  ngOnDestroy() {
+    this.productQuantitiesSubscription.unsubscribe();
   }
 
   getProducts() {
@@ -30,9 +38,9 @@ export class MenuComponent implements OnInit{
       this.http.get<any[]>(apiURLProducts, { headers }).subscribe((data) => {
         this.products = data;
         this.filterProductsByType(this.currentProductType);
-        this.products.forEach(product => {
+        /*this.products.forEach(product => {
           this.productQuantities[product.id] = 0;
-        })
+        })*/
       },
       (error) => {
         console.error('Erro ao obter produtos da API:', error)
@@ -58,5 +66,5 @@ export class MenuComponent implements OnInit{
       this.orderService.removeProduct(productId);
     }
   }
-
+  
 }
