@@ -7,21 +7,23 @@
   <div class="circle-1"></div>
   <div class="circle-2"></div>
 
-  <div *ngFor="let product of filteredProducts" class="menu-lunch-breakfast boxshadow flexbox">
-    <div class="information-product">
-      <div class="product-titles">
-        <h3 class="product-name">{{product.id}}. {{product.name}}</h3>
-        <p class="product-details">{{product.details}}</p>
-      </div>
-      <div class="product-pice-quantities flexbox">
-        <p class="product-price">R$ {{product.price}}</p>
-        <div class="product-quantities flexbox">
-          <img (click)="removeProduct(product.id)" src="../../../assets/icon-minus.svg" alt="icon minus">
-          <span>{{ productQuantities[product.id] }}</span>
-          <img (click)="addProduct(product.id)" src="../../../assets/icon-plus.svg" alt="icon plus">
+  <div class="grid">
+    <div *ngFor="let product of filteredProducts" class="menu-lunch-breakfast boxshadow flexbox">
+      <div class="information-product">
+        <div class="product-titles">
+          <h3 class="product-name">{{product.id}}. {{product.name}}</h3>
+          <p class="product-details">{{product.details}}</p>
+        </div>
+        <div class="product-pice-quantities flexbox">
+          <p class="product-price">R$ {{product.price}}</p>
+          <div class="product-quantities flexbox">
+            <img (click)="removeProduct(product.id)" src="../../../assets/icon-minus.svg" alt="icon minus">
+            <span>{{ productQuantities[product.id] }}</span>
+            <img (click)="addProduct(product.id)" src="../../../assets/icon-plus.svg" alt="icon plus" class="icon-plus">
+          </div>
         </div>
       </div>
+      <img [src]="product.image" alt="{{product.name}}" class="product-img">
     </div>
-    <img [src]="product.image" alt="{{product.name}}" class="product-img">
   </div>
 </section>
