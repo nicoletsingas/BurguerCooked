@@ -18,6 +18,8 @@
 
 .menu-title{
     margin-left: 10px;
+    color: var(--secondColor);
+    font-size: 1.2em;
 }
 
 .menu{
@@ -107,6 +109,10 @@
     height: 23px;
 }
 
+.product-quantities .icon-plus{
+    height: 25px;
+}
+
 .product-quantities span{
     margin: 0px 10px;
 }
@@ -114,4 +120,54 @@
 .product-img{
     height: 85px;
     width: 65px;
+}
+
+/* Responsive */
+
+@media screen and (min-width: 800px){
+    .container-menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .menu-title{
+        font-size: 1.5em;
+    }
+
+    .menu{
+        width: 300px;
+        margin-bottom: 50px;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        gap: 15px;
+    }
+
+    .menu-lunch-breakfast{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .product-img{
+        align-self: center;
+        margin-bottom: 10px;
+    }
+
+    .menu-lunch-breakfast .information-product{
+        gap: 5px;
+    }
+
+    .circle-1{
+        top: -20px;
+        left: -60px;
+    }
+    
+    .circle-2{
+        top: 80px;
+        left: -60px; 
+    }
 }
