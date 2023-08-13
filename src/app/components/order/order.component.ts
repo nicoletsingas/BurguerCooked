@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
-import { provideProtractorTestingSupport } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { OrderService } from 'src/app/services/order.service';
 
