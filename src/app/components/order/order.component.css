@@ -178,3 +178,21 @@
     top: 0;
     right: -80px; 
 }
+
+/* Responsive */
+
+@media screen and (min-width: 900px) {
+
+    .container-order{
+        background-color: transparent;
+    }
+
+    .container-order h3{
+        margin-top: 20px;
+    }
+
+    .circle-1, .circle-2, .close-icon{
+        display: none;
+    }
+    
+}
