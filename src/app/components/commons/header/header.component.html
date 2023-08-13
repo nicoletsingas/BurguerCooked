@@ -4,7 +4,7 @@
         <img src="../../../../assets/logo-text.png" alt="burguerCooked" class="logo-text">
     </div>
     <div *ngIf="isLoggedIn && userEmail === 'garconete@burguercooked.com'" class="icons flexbox">
-        <img (click)="toggleOrderComponent(true)" src="../../../../assets/icon-cart.svg" alt="cart-icon">
+        <img (click)="toggleOrderComponent(true)" src="../../../../assets/icon-cart.svg" alt="cart-icon" class="icon-cart">
         <img (click)="logout()" src="../../../../assets/icon-logout.svg" alt="logout-icon">
     </div>
     <div *ngIf="isLoggedIn && userEmail === 'cozinha@burguercooked.com' || isLoggedIn && userEmail === 'admin@burguercooked.com' " class="icons flexbox">
