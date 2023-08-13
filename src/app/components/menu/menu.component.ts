@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Subscription } from 'rxjs';
+import { BREAKPOINT } from '../constants';
+import { ResizeService } from 'src/app/services/resize.service';
+import { OrderComponent } from '../order/order.component';
 
 @Component({
   selector: 'app-menu',
@@ -10,20 +13,30 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, OnDestroy{
-
   products: any[] = []; 
   currentProductType: string = 'Café da manhã'; 
   filteredProducts: any[] = [];
   productQuantities: { [productId: number ]: number} = {};
   private productQuantitiesSubscription: Subscription = Subscription.EMPTY;
+  isAboveBreakpoint: boolean = false;
 
-  constructor(private http: HttpClient, private authService: AuthService, private orderService: OrderService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private orderService: OrderService,
+    private resizeService: ResizeService
+    ) {}
 
   ngOnInit(): void {
     this.productQuantitiesSubscription = this.orderService.productQuantities$.subscribe((quantities) => {
     this.productQuantities = quantities;
     });
     this.getProducts();
+
+    this.isAboveBreakpoint = this.resizeService.isScreenAboveBreakpoint();
+    this.resizeService.getScreenWidth().subscribe(screenWidth => {
+      this.isAboveBreakpoint = screenWidth > BREAKPOINT;
+    });
   }
 
   ngOnDestroy() {
