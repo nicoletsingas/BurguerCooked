@@ -13,7 +13,6 @@
 .container-menu{
     padding: 0px 5px;
     min-height: 100vh;
-    
 }
 
 .sub-container-menu{
@@ -64,19 +63,19 @@
     background-color: #FFFFFF;
 }
 
-.menu-lunch-breakfast{
-    margin: 20px 0px;
-    justify-content: space-between;
-    align-items: start;
-    padding: 7px;
-}
-
 .active{
     background-color: var(--firstColor);
     border: none;
     color: #ffffff;
     font-size: 16px;
     font-weight: 300;
+}
+
+.menu-lunch-breakfast{
+    margin: 20px 0px;
+    justify-content: space-between;
+    align-items: start;
+    padding: 7px;
 }
 
 .information-product{
@@ -147,7 +146,7 @@
     }
 
     .menu{
-        width: 300px;
+        width: 350px;
         margin-bottom: 50px;
     }
 

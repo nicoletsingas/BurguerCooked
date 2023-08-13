@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderComponent } from './components/order/order.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { MenuComponent } from './components/menu/menu.component';
     HeaderComponent,
     OrderComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    KitchenComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { MenuComponent } from './components/menu/menu.component';
     HeaderComponent,
     OrderComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    KitchenComponent
   ],
   providers: [
     AuthService

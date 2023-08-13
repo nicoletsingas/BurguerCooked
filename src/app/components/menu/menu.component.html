@@ -1,5 +1,5 @@
 <section class="container-menu">
-  <div class="sub-container-menu">
+  <section class="sub-container-menu">
     <span class="menu-title">Menu</span>
     <div class="menu flexbox boxshadow">
       <button (click)="filterProductsByType('Café da manhã')" [ngClass]="{'active': currentProductType === 'Café da manhã'}" class="btn breakfast">Café da manhã</button>
@@ -9,7 +9,7 @@
     <div class="circle-2"></div>
     <section class="grid">
       <section *ngFor="let product of filteredProducts" class="menu-lunch-breakfast boxshadow flexbox">
-        <div class="information-product">
+        <section class="information-product">
           <div class="product-titles">
             <h3 class="product-name">{{product.id}}. {{product.name}}</h3>
             <p class="product-details">{{product.details}}</p>
@@ -22,11 +22,11 @@
               <img (click)="addProduct(product.id)" src="../../../assets/icon-plus.svg" alt="icon plus" class="icon-plus">
             </div>
           </div>
-        </div>
+        </section>
         <img [src]="product.image" alt="{{product.name}}" class="product-img">
       </section>
     </section>
-  </div>
+  </section>
 
   <div *ngIf="isAboveBreakpoint" class="div-app-order">
     <app-order></app-order>

@@ -1,0 +1,49 @@
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxshadow{
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.226);
+    background-color: var(--lightGray);
+    border-radius: 10px;
+}
+
+.menu-orders{
+    height: 80px;
+    margin-top: 5px;
+    gap: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.btn{
+    height: 45px;
+    width: 155px;
+    border-radius: 10px;
+}
+
+.pending-orders, .completed-orders{
+    border: 1px solid var(--firstColor);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--firstColor);
+    background-color: #FFFFFF;
+}
+
+.active{
+    background-color: var(--firstColor);
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+
+@media screen and (min-width: 800px){
+    .menu-orders{
+        width: 350px;
+    } 
+}
