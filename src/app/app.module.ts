@@ -10,6 +10,7 @@ import { OrderComponent } from './components/order/order.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
     OrderComponent,
     LoginComponent,
     MenuComponent,
-    KitchenComponent
+    KitchenComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
     OrderComponent,
     LoginComponent,
     MenuComponent,
-    KitchenComponent
+    KitchenComponent,
+    AdminComponent
   ],
   providers: [
     AuthService
