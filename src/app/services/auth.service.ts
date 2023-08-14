@@ -21,6 +21,7 @@ export class AuthService {
       localStorage.setItem('token', response.accessToken); 
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userRole', response.user.role);
+      localStorage.setItem('username', response.user.name)
       return true;
     } else {
       throw new Error('Login inválido');
@@ -46,6 +47,10 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('userEmail');
     this.router.navigate(['']);
+  }
+
+  getUsername(): string | null {
+    return localStorage.getItem('username')
   }
 
 }

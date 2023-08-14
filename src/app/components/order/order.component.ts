@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { OrderService } from 'src/app/services/order.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-order',
@@ -10,13 +11,18 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent implements OnDestroy {
   @Output() closeOrder = new EventEmitter<boolean>();
 
-  addedProducts: { product: any, quantity: number }[] = [];
-  private subscription: Subscription;
-
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private authService: AuthService) {
     this.subscription = this.orderService.addedProduct$.subscribe(products => {
       this.addedProducts = this.orderService.getAddedProducts();
     });
+  }
+
+  addedProducts: { product: any, quantity: number }[] = [];
+  private subscription: Subscription;
+  loggedInUsername: string | null = '';
+
+  ngOnInit() {
+    this.loggedInUsername = this.authService.getUsername();
   }
 
   ngOnDestroy() {
