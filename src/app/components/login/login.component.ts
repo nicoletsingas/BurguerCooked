@@ -19,8 +19,20 @@ export class LoginComponent {
       this.errorLogin = false;
       const isUserLoggedIn = await this.authService.login(this.email, this.password);
       if (isUserLoggedIn) {
-        console.log('Login com sucesso');
-        this.router.navigate(['/menu']);
+        const userRole = localStorage.getItem('userRole');
+        switch(userRole){
+          case 'waiter':
+            this.router.navigate(['/menu']);
+            break;
+          case 'chef':
+            this.router.navigate(['/kitchen']);
+            break;
+          case 'admin':
+            this.router.navigate(['/admin']);
+            break;
+          default:
+            throw new Error('Role inválida');
+        }     
       } else {
         this.errorLogin = true;
         throw new Error('Login inválido');
