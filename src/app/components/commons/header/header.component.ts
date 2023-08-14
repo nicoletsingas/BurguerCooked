@@ -11,10 +11,13 @@ export class HeaderComponent implements OnInit{
   userEmail: string | null;
   isLoggedIn: boolean = false;
   showOrderComponent: boolean = false;
+  userRole: string | null;
   
   constructor(private authService: AuthService){
     this.userEmail = authService.getUserEmail();
     this.isLoggedIn = authService.isUserLoggedIn();
+    this.userRole = localStorage.getItem('userRole');
+    
   }
 
   ngOnInit(): void {
@@ -27,6 +30,7 @@ export class HeaderComponent implements OnInit{
     if(this.userEmail !== newEmail || this.isLoggedIn !== newLoggedState) {
       this.userEmail = newEmail;
       this.isLoggedIn = newLoggedState;
+      this.userRole = localStorage.getItem('userRole');
     }
   }
 
