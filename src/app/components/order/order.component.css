@@ -70,6 +70,12 @@
     align-self: flex-start;
 }
 
+.span-waiter-name{
+    color: var(--secondColor);
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+
 .product-container{
     width: 100%;
     max-width: 300px;
