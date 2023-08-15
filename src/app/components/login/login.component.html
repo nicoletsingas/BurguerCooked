@@ -1,10 +1,16 @@
 <main class="container-login">
   <section class="flexbox-column">
-    <img src="../../../assets/overcooked.png" alt="overcooked">
+    <img class="overcooked-img" src="../../../assets/overcooked.png" alt="overcooked">
     <p>Antes de começar, faça seu login!</p>
     <form class="flexbox-column" (ngSubmit)="onLogin()">
-      <input type="email" id="email-input" name="email" [(ngModel)]="email" placeholder="Insira seu endereço de email">
-      <input type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="Insira sua senha">
+      <div class="input-icon-container flexbox">
+        <img src="../../../assets/user.svg" alt="user icon">
+        <input type="email" id="email-input" name="email" [(ngModel)]="email" placeholder="Insira seu endereço de email">
+      </div>
+      <div class="input-icon-container flexbox">
+        <img src="../../../assets/password.svg" alt="password icon">
+        <input type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="Insira sua senha">
+      </div>
       <button class="btn-start-order flexbox">Iniciar pedido</button>
       <span *ngIf="errorLogin" class="erro-login">Email ou senha incorretos</span>
     </form>
