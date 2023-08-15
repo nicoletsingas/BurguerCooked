@@ -20,7 +20,7 @@ section{
     padding: 0px 10px;
 }
 
-section img {
+section .overcooked-img {
     height: 170px;
     margin: 40px 0px 20px 0px;
 }
@@ -32,23 +32,34 @@ section p {
     color: var(--secondColor);
 }
 
+.input-icon-container{
+    background-color: var(--bgOrder);
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.input-icon-container img {
+    height: 20px;
+}
+
 form input{
     height: 45px;
-    width: 300px;
+    width: 280px;
     text-align: center;
     font-size: 1em;
-    background-color: var(--bgOrder);
-    border-radius: 10px;
+    background-color: transparent;
     border: none;
 }
 
 form input:focus{
-    outline: 2px solid var(--firstColor);
+    outline: none;
 }
 
 form  input::placeholder{
     color: #00000073;
 }
+
+
 
 .btn-start-order{
     display: flex;
