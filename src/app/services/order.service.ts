@@ -55,13 +55,14 @@ export class OrderService {
     }
   }
 
-  private updateProductQuantities() {
+  updateProductQuantities() {
     const quantities: {[productIs: number]: number} = {};
     for (const addedProduct of Object.values(this.addedProducts)) {
       quantities[addedProduct.product.id] = addedProduct.quantity;
     }
     this.productQuantitiesSubject.next(quantities);
   }
+
 
 }
 
