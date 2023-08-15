@@ -63,10 +63,6 @@ export class OrderService {
     this.productQuantitiesSubject.next(quantities);
   }
 
-  clearProductQuantities() {
-    this.productQuantities = {};
-    this.productQuantitiesSubject.next(this.productQuantities);
-  }
 
 }
 

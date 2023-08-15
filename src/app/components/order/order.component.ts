@@ -1,8 +1,10 @@
-import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { OrderService } from 'src/app/services/order.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
+
 
 @Component({
   selector: 'app-order',
@@ -13,6 +15,8 @@ export class OrderComponent implements OnDestroy {
   @Output() closeOrder = new EventEmitter<boolean>();
 
   constructor(
+    @Inject(DOCUMENT)
+    private domDocument: Document,
     private orderService: OrderService,
     private authService: AuthService,
     private http: HttpClient,
@@ -84,11 +88,11 @@ export class OrderComponent implements OnDestroy {
         this.sentToKitchen = true;
         setTimeout(() => {
           this.sentToKitchen = false;
+          this.domDocument.location.reload();
         }, 4000);
         this.clientName = '';
         this.selectedTable = '';
         this.addedProducts = [];
-        this.orderService.clearProductQuantities();
       },
       (error) => {
         console.error('Falha ao enviar resposta para a API:' + error.message)
@@ -98,8 +102,5 @@ export class OrderComponent implements OnDestroy {
       console.error('Token de autenticação não encontrado.');
     }
   }
-
-  
-
 
 }
