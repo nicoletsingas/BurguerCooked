@@ -3,10 +3,10 @@
   <h3>Resumo do pedido</h3>
   <div class="client-data-inputs flexbox-column">
     <label for="client">Cliente:</label>
-    <input type="text" placeholder="Insira o nome do cliente" id="client">
+    <input [(ngModel)]="clientName" type="text" placeholder="Insira o nome do cliente" id="client">
     <div class="select-table flexbox">
       <span>Mesa:</span>
-      <select name="table" id="table">
+      <select [(ngModel)]="selectedTable" name="table" id="table">
         <option value="001">001</option>
         <option value="002">002</option>
         <option value="003">003</option>
@@ -48,7 +48,11 @@
       <span>R$ {{calculateTotal(calculateSubtotal(), calculateTax(calculateSubtotal())) | number: '1.2-2'}}</span>
     </div>
   </div>
-  <button>Enviar Pedido</button>
+  <button (click)="sendOrderToAPI()">Enviar Pedido</button>
   <div class="circle-1"></div>
   <div class="circle-2"></div>
+  <div *ngIf="sentToKitchen" class="success-message flexbox-column boxshadow">
+    <img src="../../../assets/CHECK-MARK-1080.gif" alt="check mark gif">
+    <span>Pedido enviado para a cozinha!</span>
+  </div>
 </section>

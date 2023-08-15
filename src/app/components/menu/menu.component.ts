@@ -5,7 +5,6 @@ import { OrderService } from 'src/app/services/order.service';
 import { Subscription } from 'rxjs';
 import { BREAKPOINT } from '../constants';
 import { ResizeService } from 'src/app/services/resize.service';
-import { OrderComponent } from '../order/order.component';
 
 @Component({
   selector: 'app-menu',
@@ -51,9 +50,6 @@ export class MenuComponent implements OnInit, OnDestroy{
       this.http.get<any[]>(apiURLProducts, { headers }).subscribe((data) => {
         this.products = data;
         this.filterProductsByType(this.currentProductType);
-        /*this.products.forEach(product => {
-          this.productQuantities[product.id] = 0;
-        })*/
       },
       (error) => {
         console.error('Erro ao obter produtos da API:', error)

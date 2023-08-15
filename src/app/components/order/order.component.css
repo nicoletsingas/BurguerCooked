@@ -185,6 +185,21 @@
     right: -80px; 
 }
 
+.success-message{
+    background-color: #FFFFFF;
+    padding: 10px;
+    position: absolute;
+}
+
+.success-message img{
+    height: 100px;
+}
+
+.success-message span{
+    color: var(--btnReadyOrder);
+}
+
+
 /* Responsive */
 
 @media screen and (min-width: 900px) {
