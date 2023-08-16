@@ -95,7 +95,7 @@ export class OrderComponent implements OnDestroy {
         this.addedProducts = [];
       },
       (error) => {
-        console.error('Falha ao enviar resposta para a API:' + error.message)
+        console.error('Falha ao enviar resposta para a API:', error.message)
       }
     );
     } else {
