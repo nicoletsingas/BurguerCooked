@@ -3,7 +3,7 @@
   <h3>Resumo do pedido</h3>
   <div class="client-data-inputs flexbox-column">
     <label for="client">Cliente:</label>
-    <input [(ngModel)]="clientName" type="text" placeholder="Insira o nome do cliente" id="client">
+    <input [(ngModel)]="clientName" type="text" placeholder="Insira o nome do cliente" id="client" maxlength="10">
     <div class="select-table flexbox">
       <span>Mesa:</span>
       <select [(ngModel)]="selectedTable" name="table" id="table">
