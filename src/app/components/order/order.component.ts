@@ -69,11 +69,11 @@ export class OrderComponent implements OnDestroy {
       client: this.clientName,
       table: this.selectedTable,
       waiter: this.loggedInUsername,
+      status: 'pending',
       products: this.addedProducts.map(item => {
         return {
           name: item.product.name,
           quantity: item.quantity,
-          status: 'pending'
         };
       })
     };
