@@ -32,7 +32,7 @@
     border-radius: 10px;
 }
 
-.pending-orders, .completed-orders-btn{
+.pending-orders-btn, .completed-orders-btn{
     border: 1px solid var(--firstColor);
     font-size: 16px;
     font-weight: 400;
@@ -142,6 +142,10 @@
 
 @media screen and (min-width: 800px){
 
+    .no-orders{
+        background-color: aqua;
+    }
+
     .no-orders-img{
         height: 250px;
     }
@@ -155,13 +159,13 @@
         margin-top: 40px;
     } 
 
-    .completed-orders{
+    /*.completed-orders, .pending-orders{
         justify-content: center;
-    }
+    }*/
 
     .grid{
         display: grid;
-        grid-template-columns: 300px 300px;
+        grid-template-columns: auto;
         gap: 20px;
     }
 
@@ -173,6 +177,7 @@
 @media screen and (min-width: 1000px){
     .grid{
         grid-template-columns: 300px 300px 300px;
+        grid-template-rows: auto;
     }
 }
 
