@@ -46,7 +46,9 @@ header p, section p {
     .header{
         padding-bottom: 5px;
         margin-bottom: 0px; 
-        border-bottom:  1px solid var(--firstColor); 
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(0.25turn, var(--firstColor),var(--bgOrderKitchen), var(--secondColor));
+        border-image-slice: 1;
     }
 }
 
