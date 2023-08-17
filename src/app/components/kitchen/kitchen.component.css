@@ -32,7 +32,7 @@
     border-radius: 10px;
 }
 
-.pending-orders, .completed-orders{
+.pending-orders, .completed-orders-btn{
     border: 1px solid var(--firstColor);
     font-size: 16px;
     font-weight: 400;
@@ -45,7 +45,20 @@
     border: none;
     color: #ffffff;
     font-size: 16px;
-    font-weight: 300;
+}
+
+.no-orders{
+    margin-top: 40px;
+}
+
+.no-orders-img{
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.no-orders-span{
+    color: var(--secondColor);
+    font-size: 1.2em;
 }
 
 .order-container{
@@ -53,7 +66,7 @@
     min-width: 240px;
     margin: 20px 0px;
     gap: 10px;
-    padding: 0px 5px;
+    padding: 0px 10px;
 }
 
 .order-number{
@@ -78,6 +91,7 @@
 
 .waiter-name{
     align-self: flex-start;
+    
 }
 
 .title-quant-order{
@@ -124,9 +138,52 @@
     border-radius: 5px;
 }
 
+/* Responsive */
+
 @media screen and (min-width: 800px){
+
+    .no-orders-img{
+        height: 250px;
+    }
+    
+    .no-orders-span{
+        font-size: 1.5em;
+    }
+
     .menu-orders{
         width: 350px;
         margin-top: 40px;
     } 
+
+    .completed-orders{
+        justify-content: center;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 300px 300px;
+        gap: 20px;
+    }
+
+    .client-table-name{
+        padding: 0px 10px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .grid{
+        grid-template-columns: 300px 300px 300px;
+    }
+}
+
+@media screen and (min-width: 1350px){
+    .grid{
+        grid-template-columns: 300px 300px 300px 300px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .grid{
+        grid-template-columns: 300px 300px 300px 300px 300px;
+    }
 }

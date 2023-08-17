@@ -1,9 +1,13 @@
 <section class="container-kitchen flexbox-column" >
   <div class="menu-orders flexbox boxshadow">
-    <button (click)="showPendingOrders = true" class="btn pending-orders">Pedidos pendentes</button>
-    <button (click)="showPendingOrders = false" class="btn completed-orders">Pedidos conluídos</button>
+    <button (click)="showPendingOrders = true" [ngClass]="{'active': showPendingOrders === true}" class="btn pending-orders">Pedidos pendentes</button>
+    <button (click)="showPendingOrders = false" [ngClass]="{'active': showPendingOrders === false}" class="btn completed-orders-btn">Pedidos conluídos</button>
   </div>
   <section *ngIf="showPendingOrders">
+    <div *ngIf="showImage" class="no-orders flexbox-column">
+      <img class="no-orders-img" src="../../../assets/overcooked-no-orders.png" alt="overcooked chef">
+      <span class="no-orders-span">Sem pedidos no momento!</span>
+    </div>
     <section *ngFor="let order of pendingOrders" class="order-container boxshadow flexbox-column">
       <span class="red-title order-number">Pedido número: {{ order.id }}</span>
       <div class="client-table-name flexbox">
@@ -28,7 +32,7 @@
       <button (click)="markOrderAsCompleted(order)" class="btn-ready-orders">Pronto</button>
     </section>
   </section>
-  <section *ngIf="!showPendingOrders">
+  <section *ngIf="!showPendingOrders" class="completed-orders grid">
     <div *ngFor="let order of completedOrders" class="order-container boxshadow flexbox-column">
       <span class="red-title order-number">Pedido número: {{ order.id }}</span>
       <div class="client-table-name flexbox">
