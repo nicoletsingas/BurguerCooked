@@ -62,7 +62,8 @@ export class KitchenComponent implements OnInit{
 
       const updatedOrder = {
         ...order,
-        status: 'completed'
+        status: 'completed',
+        completedDate: new Date().toLocaleDateString()
       };
 
       this.http.patch<any>(`http://localhost:8080/orders/${order.id}`, updatedOrder, { headers }).subscribe(() => {
@@ -78,7 +79,7 @@ export class KitchenComponent implements OnInit{
 
   moveOrderToCompletedList(order: any) {
     const completionTime = new Date().toLocaleDateString();
-    order.completionTime = completionTime;
+    order.completedDate = completionTime;
     this.completedOrders.push(order);
     this.pendingOrders = this.pendingOrders.filter((pendingOrder) => pendingOrder.id !== order.id);
   }

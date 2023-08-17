@@ -1,9 +1,9 @@
 <section class="container-kitchen flexbox-column" >
   <div class="menu-orders flexbox boxshadow">
-    <button (click)="showPendingOrders = true" [ngClass]="{'active': showPendingOrders === true}" class="btn pending-orders">Pedidos pendentes</button>
+    <button (click)="showPendingOrders = true" [ngClass]="{'active': showPendingOrders === true}" class="btn pending-orders-btn">Pedidos pendentes</button>
     <button (click)="showPendingOrders = false" [ngClass]="{'active': showPendingOrders === false}" class="btn completed-orders-btn">Pedidos conluídos</button>
   </div>
-  <section *ngIf="showPendingOrders">
+  <section *ngIf="showPendingOrders" class="pending-orders grid">
     <div *ngIf="showImage" class="no-orders flexbox-column">
       <img class="no-orders-img" src="../../../assets/overcooked-no-orders.png" alt="overcooked chef">
       <span class="no-orders-span">Sem pedidos no momento!</span>
@@ -54,8 +54,7 @@
         <span class="order-data">{{ product.name }}</span>
         <span class="order-data quantity-data">{{ product.quantity }}</span>
       </div>
-      <span class="time-completed">Concluído em: {{ order.completionTime }}</span>
+      <span class="time-completed">Concluido em: {{ order.completedDate }}</span>
     </div>
   </section>
-
 </section>
