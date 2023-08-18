@@ -1,0 +1,29 @@
+<section class="ready-orders-container">
+  <img (click)="onCloseClick()" class="close-icon" src="../../../assets/icon-close.svg" alt="icon-close">
+  <h2>Pedidos Concluídos</h2>
+  <section class="ready-orders grid">
+    <div *ngFor="let order of completedOrders" class="order-container boxshadow flexbox-column">
+      <span class="red-title order-number">Pedido número: {{ order.id }}</span>
+      <div class="client-table-name flexbox">
+        <div class="client-table">
+          <span>Mesa:</span>
+          <span class="data-client">{{ order.table }}</span>
+        </div>
+        <div class="client-name">
+          <span>Cliente:</span>
+          <span class="data-client">{{ order.client }}</span>
+        </div>
+      </div>
+      <span class="waiter-name">Atendente: {{ order.waiter }}</span>
+      <div class="title-quant-order flexbox">
+        <span class="red-title">Pedido</span>
+        <span class="red-title">Quant.</span>
+      </div>
+      <div *ngFor="let product of order.products" class="order-details flexbox">
+        <span class="order-data">{{ product.name }}</span>
+        <span class="order-data quantity-data">{{ product.quantity }}</span>
+      </div>
+      <span class="time-completed">Concluido em: {{ order.completedDate }}</span>
+    </div>
+  </section>
+</section>

@@ -142,10 +142,6 @@
 
 @media screen and (min-width: 800px){
 
-    .no-orders{
-        background-color: aqua;
-    }
-
     .no-orders-img{
         height: 250px;
     }
@@ -156,12 +152,8 @@
 
     .menu-orders{
         width: 350px;
-        margin-top: 40px;
+        margin: 40px 0px 20px;
     } 
-
-    /*.completed-orders, .pending-orders{
-        justify-content: center;
-    }*/
 
     .grid{
         display: grid;
@@ -177,7 +169,17 @@
 @media screen and (min-width: 1000px){
     .grid{
         grid-template-columns: 300px 300px 300px;
-        grid-template-rows: auto;
+    }
+
+    .pending-orders{
+        position: relative;
+    }
+
+    .no-orders{
+        position: absolute;
+        top: 0;
+        left: 270px;
+        width: 400px;
     }
 }
 
@@ -185,10 +187,18 @@
     .grid{
         grid-template-columns: 300px 300px 300px 300px;
     }
+
+    .no-orders{
+        left: 420px;
+    }
 }
 
 @media screen and (min-width: 1700px) {
     .grid{
         grid-template-columns: 300px 300px 300px 300px 300px;
+    }
+
+    .no-orders{
+        left: 580px;
     }
 }

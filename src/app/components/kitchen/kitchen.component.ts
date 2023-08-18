@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { ReadyOrdersComponent } from '../ready-orders/ready-orders.component';
 
 interface Order {
   client: string;
@@ -24,7 +25,9 @@ export class KitchenComponent implements OnInit{
   constructor(
     private http: HttpClient,
     private authService: AuthService
-    ){}
+  ){}
+
+  @ViewChild(ReadyOrdersComponent) readyOrdersComponent!: ReadyOrdersComponent;
 
   ngOnInit(): void {
     this.getPendingOrders();
@@ -94,6 +97,7 @@ export class KitchenComponent implements OnInit{
 
       this.http.get<any>('http://localhost:8080/orders', { headers }).subscribe((response) => {
         this.completedOrders = response.filter((order: Order) => order.status === 'completed');
+        this.readyOrdersComponent.completedOrders = this.completedOrders;
       },
       (error) => {
         console.error('Erro ao buscar pedidos concluídos', error);

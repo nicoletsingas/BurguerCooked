@@ -12,12 +12,12 @@ export class HeaderComponent implements OnInit{
   isLoggedIn: boolean = false;
   showOrderComponent: boolean = false;
   userRole: string | null;
+  showReadyOrders: boolean = false;
   
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService) {
     this.userEmail = authService.getUserEmail();
     this.isLoggedIn = authService.isUserLoggedIn();
     this.userRole = localStorage.getItem('userRole');
-    
   }
 
   ngOnInit(): void {
@@ -41,6 +41,10 @@ export class HeaderComponent implements OnInit{
 
   toggleOrderComponent(show: boolean) {
     this.showOrderComponent = show;
+  }
+
+  toggleReadyOrders(show: boolean){
+    this.showReadyOrders = show;
   }
 
 }
