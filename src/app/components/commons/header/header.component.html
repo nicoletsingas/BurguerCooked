@@ -5,6 +5,7 @@
     </div>
     <div *ngIf="isLoggedIn && userRole === 'waiter'" class="icons flexbox">
         <img (click)="toggleOrderComponent(true)" src="../../../../assets/icon-cart.svg" alt="cart-icon" class="icon-cart">
+        <img (click)="toggleReadyOrders(true)" src="../../../../assets/ready-orders.svg" alt="icon-clock">
         <img (click)="logout()" src="../../../../assets/icon-logout.svg" alt="logout-icon">
     </div>
     <div *ngIf="isLoggedIn && userRole === 'chef' || isLoggedIn && userRole === 'admin'" class="icons flexbox">
@@ -12,5 +13,8 @@
     </div>
     <div *ngIf="showOrderComponent" class="order-overlay">
         <app-order (closeOrder)="toggleOrderComponent(false)"></app-order>
+    </div>
+    <div *ngIf="showReadyOrders" class="order-overlay">
+        <app-ready-orders (closeOrder)="toggleReadyOrders(false)"></app-ready-orders>
     </div>
 </header>

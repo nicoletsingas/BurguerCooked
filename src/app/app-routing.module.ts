@@ -5,7 +5,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
 
-
 const routes: Routes = [
   {
     path: '', 

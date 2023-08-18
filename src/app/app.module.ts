@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginComponent,
     MenuComponent,
     KitchenComponent,
-    AdminComponent
+    AdminComponent,
+    ReadyOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginComponent,
     MenuComponent,
     KitchenComponent,
-    AdminComponent
+    AdminComponent,
+    ReadyOrdersComponent
   ],
   providers: [
     AuthService
