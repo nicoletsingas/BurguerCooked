@@ -14,7 +14,7 @@
     <div *ngIf="showOrderComponent" class="order-overlay">
         <app-order (closeOrder)="toggleOrderComponent(false)"></app-order>
     </div>
-    <div *ngIf="showReadyOrders" class="order-overlay">
+    <div *ngIf="showReadyOrders" class="ready-order-overlay">
         <app-ready-orders (closeOrder)="toggleReadyOrders(false)"></app-ready-orders>
     </div>
 </header>

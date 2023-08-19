@@ -31,7 +31,7 @@ header p, section p {
     cursor: pointer;
 }
 
-.order-overlay{
+.order-overlay, .ready-order-overlay{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -40,6 +40,10 @@ header p, section p {
     z-index: 1;
     background-color: var(--bgColor);
     overflow-y: auto;
+}
+
+.ready-order-overlay{
+    z-index: 2;
 }
 
 @media screen and (min-width: 800px){

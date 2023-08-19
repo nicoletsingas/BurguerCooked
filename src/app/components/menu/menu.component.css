@@ -191,11 +191,11 @@
         border-left: 2px solid transparent;
         border-image: linear-gradient(to bottom, var(--firstColor),var(--bgOrderKitchen), var(--secondColor));
         border-image-slice: 1;
-        padding: 0px 50px;
+        padding: 20px 2px 0px 10px;
     }
 
     .grid{
-        grid-template-columns: 150px 150px 150px;
+        grid-template-columns: 165px 165px 165px;
     }
 }
 
@@ -218,6 +218,10 @@
 
     .container-menu{
         margin-right: 200px;
+    }
+
+    .div-app-order{
+        padding-left: 50px;
     }
 }
 
