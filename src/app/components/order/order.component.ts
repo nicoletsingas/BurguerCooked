@@ -71,6 +71,7 @@ export class OrderComponent implements OnDestroy {
       waiter: this.loggedInUsername,
       status: 'pending',
       completedDate: '',
+      orderDelivered: '',
       products: this.addedProducts.map(item => {
         return {
           name: item.product.name,

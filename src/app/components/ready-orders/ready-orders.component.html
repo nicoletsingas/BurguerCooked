@@ -24,8 +24,7 @@
         <span class="order-data quantity-data">{{ product.quantity }}</span>
       </div>
       <span class="time-completed">Concluido em: {{ order.completedDate }}</span>
+      <button (click)="orderDelivered(order)">Entregue</button>
     </div>
   </section>
-  <div class="circle-1"></div>
-  <div class="circle-2"></div>
 </section>
