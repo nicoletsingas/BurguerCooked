@@ -1,0 +1,115 @@
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexbox-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxshadow{
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.226);
+    background-color: var(--lightGray);
+    border-radius: 10px;
+}
+
+.ready-orders-container {
+    background-color: var(--bgColor);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.close-icon{
+    align-self: flex-end;
+    margin: 5px 5px 0px 0px;
+}
+
+.ready-orders-container h2 {
+    color: var(--secondColor);
+    margin-bottom: 20px;
+}
+
+.order-container{
+    background-color: var(--bgOrderKitchen);
+    min-width: 240px;
+    margin: 20px 0px;
+    gap: 10px;
+    padding: 0px 10px;
+}
+
+.order-number{
+    margin-top: 10px;
+}
+
+.red-title{
+    color: var(--secondColor);
+    font-size: 1.1em;
+}
+
+.client-table-name{
+    justify-self: flex-start;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.data-client{
+    font-weight: 300;
+    padding-left: 4px;
+}
+
+.waiter-name{
+    align-self: flex-start;
+}
+
+.title-quant-order{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.order-details{
+    justify-content: space-between;
+    width: 100%;
+}
+
+.order-data{
+    color: var(--btnReadyOrder);
+    background-color: #FFFFFF;
+    padding: 3px;
+    border-radius: 5px;
+    width: 160px;
+    font-weight: 300;
+}
+
+.quantity-data{
+    width: 60px;
+    text-align: center;
+}
+
+.time-completed{
+    background-color: var(--btnReadyOrder);
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.circle-1, .circle-2{
+    position: absolute;
+    top: -80px;
+    right: -25px;
+    background-color: #e1732e44;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle-2{
+    top: 0;
+    right: -80px; 
+}
