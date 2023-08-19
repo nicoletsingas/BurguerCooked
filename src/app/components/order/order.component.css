@@ -26,9 +26,10 @@
 
 .close-icon{
     align-self: flex-end;
+    margin: 5px 5px 0px 0px;
 }
 
-.container-order h3 {
+.container-order h2 {
     color: var(--secondColor);
     margin-bottom: 20px;
 }
