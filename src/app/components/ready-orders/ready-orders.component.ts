@@ -19,6 +19,7 @@ export class ReadyOrdersComponent implements OnInit {
   @Output() closeOrder = new EventEmitter<boolean>();
 
   completedOrders: any[] = [];
+  deliveredOrders: any[] = [];
 
   constructor(
     private http: HttpClient
@@ -32,7 +33,7 @@ export class ReadyOrdersComponent implements OnInit {
     this.closeOrder.emit(false);
   }
 
-  getCompletedOrders(){
+  getCompletedOrders() {
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -48,6 +49,38 @@ export class ReadyOrdersComponent implements OnInit {
       });
     } else {
       console.error('Token de autenticação não encontrado.');
+    }
+  }
+
+  orderDelivered(order: any) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      });
+
+      const updatedOrder = {
+        ...order,
+        orderDelivered: 'delivered'
+      };
+
+      this.http.patch<any>(`http://localhost:8080/orders/${order.id}`, updatedOrder, {headers}).subscribe(() => {
+        this.moveOrderToDeliveredList(order);
+      },
+      (error) => {
+        console.error('Erro ao buscar pedidos entregues', error);
+      });
+    } else {
+      console.error('Token de autenticação não encontrado.');
+    }
+  }
+
+  moveOrderToDeliveredList(order: any) {
+    const index = this.completedOrders.findIndex(o => o.id === order.id);
+    if (index !== -1) {
+      const deliveredOrder = this.completedOrders.splice(index, 1)[0];
+      this.deliveredOrders.push(deliveredOrder);
     }
   }
 

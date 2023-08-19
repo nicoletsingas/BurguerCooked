@@ -170,22 +170,6 @@
     background-color: var(--secondColor);
 }
 
-.circle-1, .circle-2{
-    position: absolute;
-    top: -80px;
-    right: -25px;
-    background-color: #e1732e44;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    z-index: -1;
-}
-
-.circle-2{
-    top: 0;
-    right: -80px; 
-}
-
 .success-message{
     background-color: #FFFFFF;
     padding: 10px;
@@ -200,7 +184,6 @@
     color: var(--btnReadyOrder);
 }
 
-
 /* Responsive */
 
 @media screen and (min-width: 900px) {
@@ -213,7 +196,7 @@
         margin-top: 20px;
     }
 
-    .circle-1, .circle-2, .close-icon{
+    .close-icon{
         display: none;
     }
     

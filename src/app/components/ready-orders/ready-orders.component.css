@@ -31,7 +31,7 @@
 
 .ready-orders-container h2 {
     color: var(--secondColor);
-    margin-bottom: 20px;
+    margin: 15px 0px;
 }
 
 .order-container{
@@ -39,7 +39,7 @@
     min-width: 240px;
     margin: 20px 0px;
     gap: 10px;
-    padding: 0px 10px;
+    padding: 0px 5px;
 }
 
 .order-number{
@@ -91,25 +91,33 @@
 }
 
 .time-completed{
-    background-color: var(--btnReadyOrder);
-    color: #FFFFFF;
-    margin-bottom: 10px;
+    color: var(--secondColor);
+    margin: 10px 0px;
     padding: 5px;
     border-radius: 5px;
+    background-color: #FFFFFF;
 }
 
-.circle-1, .circle-2{
-    position: absolute;
-    top: -80px;
-    right: -25px;
-    background-color: #e1732e44;
-    height: 150px;
+button{
+    background-color: var(--btnReadyOrder);
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
     width: 150px;
-    border-radius: 50%;
-    z-index: -1;
 }
 
-.circle-2{
-    top: 0;
-    right: -80px; 
+@media screen and (min-width: 1000px){
+    .grid{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 300px 300px 300px;
+    }
+
+    .client-table-name{
+        padding: 0px 5px;
+    }
+
 }
