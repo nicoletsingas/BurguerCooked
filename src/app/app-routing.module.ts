@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -12,15 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent, canActivate: [AuthGuard], data: { allowedRoles: ['waiter']}
   },
   {
     path: 'kitchen',
-    component: KitchenComponent
+    component: KitchenComponent, canActivate: [AuthGuard], data: { allowedRoles: ['chef']}
   }, 
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent, canActivate: [AuthGuard], data: { allowedRoles: ['admin']}
   }
 ];
 
