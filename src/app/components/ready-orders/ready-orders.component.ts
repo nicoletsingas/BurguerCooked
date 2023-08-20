@@ -6,6 +6,7 @@ interface Order {
   table: string;
   waiter: string;
   status: string;
+  orderDelivered: string;
   products: [];
 }
 
@@ -42,7 +43,7 @@ export class ReadyOrdersComponent implements OnInit {
       });
 
       this.http.get<any>('http://localhost:8080/orders', { headers }).subscribe((response) => {
-        this.completedOrders = response.filter((order: Order) => order.status === 'completed');
+        this.completedOrders = response.filter((order: Order) => order.status === 'completed' && order.orderDelivered !== 'delivered');
       },
       (error) => {
         console.error('Erro ao buscar pedidos concluídos', error);
