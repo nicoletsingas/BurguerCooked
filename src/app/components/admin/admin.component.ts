@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+  activeComponent: string = 'employees';
+
+  showEmployees() {
+    this.activeComponent = 'employees';
+  }
+
+  showProducts() {
+    this.activeComponent = 'products';
+  }
 
 }
