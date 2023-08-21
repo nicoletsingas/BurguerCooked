@@ -1,0 +1,44 @@
+<section class="employee-container">
+  <select name="" id="select-admin-employees">
+    <option value="Escolha um filtro" selected disabled>Escolha um filtro</option>
+    <option value="Lista de Funcionários">Lista de Funcionários</option>
+    <option value="Cad. Funcionário">Cad. Funcionário</option>
+  </select>
+
+  <div class="employee-data boxshadow flexbox-column">
+    <span>Id:</span>
+    <span>Nome:</span>
+    <span>Email:</span>
+    <span>Cargo:</span>
+    <div class="edit-delete-icons flexbox">
+      <img src="../../../assets/edit-icon.svg" alt="edit icon">
+      <img src="../../../assets/icon-trash.svg" alt="delete icon">
+    </div>
+  </div>
+
+  <section class="employee-register flexbox-column">
+    <form action="">
+      <div class="input-icon-container flexbox">
+        <img src="../../../assets/user.svg" alt="user icon">
+        <input type="text" id="name-input" name="name" placeholder="Insira o nome do funcionário">
+      </div>
+      <div class="input-icon-container flexbox">
+        <img src="../../../assets/icon-email.svg" alt="user icon">
+        <input type="email" id="email-input" name="email" placeholder="Insira o email do funcionário">
+      </div>
+      <div class="input-icon-container flexbox">
+        <img src="../../../assets/password.svg" alt="user icon">
+        <input type="password" id="pass-input" name="password" placeholder="Insira a senha">
+      </div>
+    </form>
+    <div class="flexbox-column">
+      <span class="select-the-position">Selecione o cargo:</span>
+      <div class="employee-position flexbox">
+        <span>Waiter</span>
+        <span>Chef</span>
+        <span>Admin</span>
+      </div>
+    </div>
+    <button class="btn-register">Criar Cadastro</button>
+  </section>
+</section>

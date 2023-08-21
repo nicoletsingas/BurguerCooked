@@ -17,20 +17,6 @@
     border-radius: 10px;
 }
 
-.admin-container {
-    gap: 20px;
-}
-
-select{
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    border: 1px solid var(--firstColor);
-    color: var(--firstColor);
-    padding: 5px;
-    font-size: .9em;
-    margin-top: 20px;
-}
-
 .menu{
     height: 80px;
     margin-top: 5px;
@@ -58,84 +44,4 @@ select{
     color: #ffffff;
     font-size: 16px;
     font-weight: 300;
-}
-
-.employee-data{
-    width: 300px;
-}
-
-.edit-delete-icons{
-    justify-content: space-around;
-    width: 100%;
-    max-width: 300px;
-}
-
-.edit-delete-icons img{
-    height: 30px;
-}
-
-.employee-register{
-    width: 100%;
-}
-
-form input{
-    height: 45px;
-    width: 250px;
-    text-align: center;
-    font-size: 1em;
-    background-color: transparent;
-    border: none;
-}
-
-form input:focus{
-    outline: none;
-}
-
-form  input::placeholder{
-    color: #00000073;
-}
-
-.input-icon-container, .employee-position span{
-    background-color: var(--bgOrder);
-    padding-left: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.input-icon-container img {
-    height: 20px;
-}
-
-.select-the-position{
-    margin-bottom: 10px;
-}
-
-.employee-position{
-    width: 100%;
-    margin-bottom: 20px;
-    gap: 20px;
-}
-
-.employee-position span{
-    padding: 10px;
-}
-
-.employee-position-active{
-    background-color: var(--secondColor);
-    color: #FFFFFF;
-}
-
-.btn-register{
-    height: 45px;
-    width: 220px;
-    background-color: var(--firstColor);
-    border-radius: 20px;
-    color: #FFFFFF;
-    transition: .4s ease-in-out;
-    font-size: 1em;
-    border: none;
-}
-
-.btn-register:hover{
-    background-color: var(--secondColor);
 }

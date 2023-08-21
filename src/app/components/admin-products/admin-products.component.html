@@ -1,0 +1,61 @@
+<section class="products-container">
+  <select name="" id="select-admin-products">
+    <option value="Escolha um filtro" selected disabled>Escolha um filtro</option>
+    <option value="Lista de Produtos">Lista de Produtos</option>
+    <option value="Cadastrar Produto">Cadastrar Produto</option>
+  </select>
+
+  <section class="products-list-container">
+    <div class="products-list-titles">
+      <span>ID</span>
+      <span>Produto</span>
+      <span>Preço</span>
+    </div>
+    <div class="products-container">
+      <span>1</span>
+      <span>Café Americano</span>
+      <span>5</span>
+      <div class="icons-edit-trash">
+        <img src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
+        <img src="../../../assets/icon-trash2.svg" alt="trash icon">
+      </div>
+    </div>
+  </section>
+
+  <section class="register-products-container">
+    <form action="">
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/id-product-icon.svg" alt="product icon">
+        <input type="text" id="id-product-input" name="id-product" placeholder="Id do produto">
+      </div>
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/tag-product-icon.svg" alt="product icon">
+        <input type="text" id="name-product-input" name="name-product" placeholder="Nome do produto">
+      </div>
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/icon-price.svg" alt="price icon">
+        <input type="text" id="price-product-input" name="price-product" placeholder="Preço do produto">
+      </div>
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/image-icon.svg" alt="imageicon">
+        <input type="text" id="image-product-input" name="image-product" placeholder="URL da imagem">
+      </div>
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/details-icon.svg" alt="details icon">
+        <input type="text" id="details-product-input" name="details-product" placeholder="Detalhes do produto">
+      </div>
+      <div class="input-product-container flexbox">
+        <img src="../../../assets/calendar-icon.svg" alt="data icon">
+        <input type="text" id="data-product-input" name="data-product" placeholder="dd/mm/aaaa">
+      </div>
+    </form>
+    <div>
+      <span>Selecione a Categoria:</span>
+      <div class="flexbox">
+        <span>Café da manhã</span>
+        <span>Almoço</span>
+      </div>
+    </div>
+    <button>Cadastrar Produto</button>
+  </section>
+</section>

@@ -12,6 +12,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.component';
+import { AdminEmployeesComponent } from './components/admin-employees/admin-employees.component';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.com
     MenuComponent,
     KitchenComponent,
     AdminComponent,
-    ReadyOrdersComponent
+    ReadyOrdersComponent,
+    AdminEmployeesComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.com
     MenuComponent,
     KitchenComponent,
     AdminComponent,
-    ReadyOrdersComponent
+    ReadyOrdersComponent,
+    AdminEmployeesComponent,
+    AdminProductsComponent
   ],
   providers: [
     AuthService
