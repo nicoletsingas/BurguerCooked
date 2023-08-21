@@ -1,6 +1,16 @@
 <section class="admin-container flexbox-column">
   <div class="menu flexbox boxshadow">
-    <button class="btn employees boxshadow">Funcionários</button>
-    <button class="btn products boxshadow">Produtos</button>
+    <button (click)="showEmployees()" [ngClass]="{'active': activeComponent === 'employees'}" class="btn employees boxshadow">Funcionários</button>
+    <button (click)="showProducts()" [ngClass]="{'active': activeComponent === 'products'}" class="btn products boxshadow">Produtos</button>
   </div>
+
+  <div *ngIf="activeComponent === 'employees'">
+    <app-admin-employees></app-admin-employees>
+  </div>
+
+  <div *ngIf="activeComponent === 'products'">
+    <app-admin-products></app-admin-products>
+  </div>
+
+
 </section>

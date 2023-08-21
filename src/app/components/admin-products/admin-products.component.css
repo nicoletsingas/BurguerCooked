@@ -16,3 +16,84 @@
     background-color: var(--lightGray);
     border-radius: 10px;
 }
+
+select{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid var(--firstColor);
+    color: var(--firstColor);
+    padding: 5px;
+    font-size: .9em;
+    margin-top: 20px;
+}
+
+.products-list-titles{
+    justify-content: space-around;
+}
+
+.products-list-container{
+    border-bottom: solid 1px rgba(0, 0, 0, 0.20) ;
+}
+
+.icons-edit-trash img, .input-product-container img{
+    height: 20px;
+}
+
+form input{
+    height: 45px;
+    width: 250px;
+    text-align: center;
+    font-size: 1em;
+    background-color: transparent;
+    border: none;
+}
+
+form input:focus{
+    outline: none;
+}
+
+form  input::placeholder{
+    color: #00000073;
+}
+
+.input-product-container, .product-category span{
+    background-color: var(--bgOrder);
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.select-category{
+    margin-bottom: 10px;
+}
+
+.product-category{
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.product-category span{
+    padding: 10px;
+}
+
+.product-category-active{
+    background-color: var(--secondColor);
+    color: #FFFFFF;
+}
+
+
+.btn-register{
+    height: 45px;
+    width: 220px;
+    background-color: var(--firstColor);
+    border-radius: 20px;
+    color: #FFFFFF;
+    transition: .4s ease-in-out;
+    font-size: 1em;
+    border: none;
+}
+
+.btn-register:hover{
+    background-color: var(--secondColor);
+}
