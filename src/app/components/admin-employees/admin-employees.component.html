@@ -1,11 +1,11 @@
 <section class="employee-container">
-  <select name="" id="select-admin-employees">
+  <select [(ngModel)]="selectedView" id="select-admin-employees">
     <option value="Escolha um filtro" selected disabled>Escolha um filtro</option>
-    <option value="Lista de Funcionários">Lista de Funcionários</option>
-    <option value="Cad. Funcionário">Cad. Funcionário</option>
+    <option value="list">Lista de Funcionários</option>
+    <option value="register">Cadastrar Funcionário</option>
   </select>
 
-  <div class="employee-data boxshadow flexbox-column">
+  <section *ngIf="selectedView === 'list'" class="employee-data boxshadow flexbox-column">
     <span>Id:</span>
     <span>Nome:</span>
     <span>Email:</span>
@@ -14,9 +14,9 @@
       <img src="../../../assets/edit-icon.svg" alt="edit icon">
       <img src="../../../assets/icon-trash.svg" alt="delete icon">
     </div>
-  </div>
+  </section>
 
-  <section class="employee-register flexbox-column">
+  <section *ngIf="selectedView === 'register'" class="employee-register flexbox-column">
     <form action="">
       <div class="input-icon-container flexbox">
         <img src="../../../assets/user.svg" alt="user icon">
