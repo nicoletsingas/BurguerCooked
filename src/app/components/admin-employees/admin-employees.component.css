@@ -24,14 +24,27 @@ select{
     color: var(--firstColor);
     padding: 5px;
     font-size: .9em;
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 .employee-data{
     width: 300px;
+    gap: 20px;
+}
+
+.employee-item{
+    width: 100%;
+    align-items: start;
+    padding: 10px;
+    gap: 5px;
+}
+
+.user-data{
+    font-weight: 300;
 }
 
 .edit-delete-icons{
+    margin-top: 5px;
     justify-content: space-around;
     width: 100%;
     max-width: 300px;

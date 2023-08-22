@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-admin-employees',
@@ -11,10 +13,12 @@ export class AdminEmployeesComponent implements OnInit {
 
   selectedView: string = 'list';
   users: any[] = [];
+  saveCancelVisible: {[userIs: number]: boolean} = {};
 
   constructor(
     private http: HttpClient,
     private authService: AuthService,
+    public dialog: MatDialog
   ) {}
 
     ngOnInit(): void {
@@ -28,10 +32,12 @@ export class AdminEmployeesComponent implements OnInit {
       const apiUrlUsers = 'http://localhost:8080/users';
       this.http.get<any[]>(apiUrlUsers, { headers }).subscribe((data) => {
         this.users = data;
-        console.log('usuarios:', this.users)
+        for (const user of data) {
+          user.editing = false;
+        }
       },
       (error) => {
-        console.error('Erro ao obter produtos da API:', error)
+        console.error('Erro ao obter usuarios da API:', error)
       });
     }
   }
@@ -42,5 +48,56 @@ export class AdminEmployeesComponent implements OnInit {
     }
   }
 
+  toggleEdit(user: any) {
+    user.editing = !user.editing;
+
+    this.saveCancelVisible[user.id] = user.editing;
+  }
+
+  cancelEdit(user: any) {
+    user.editing = false;
+    this.saveCancelVisible[user.id] = false;
+  }
+
+  updateUsersData(user: any) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlUsers = `http://localhost:8080/users/${user.id}`;
+      this.http.patch<any[]>(apiUrlUsers, user, { headers }).subscribe((response) => {
+        user.editing = false;
+      },
+      (error) => {
+        console.error('Erro ao atualizar dados', error)
+      });
+    }
+  }
+
+  deleteUser(user: any) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlUsers = `http://localhost:8080/users/${user.id}`;
+      this.http.delete<any[]>(apiUrlUsers, { headers }).subscribe(() => {
+        this.users = this.users.filter(u => u.id !== user.id);
+      },
+      (error) => {
+        console.error('Erro ao excluir usuário', error)
+      });
+    }
+  }
+
+  deleteUserConfirmation(user: any) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: { message: `Deseja mesmo excluir o usuário ${user.name}?`}
+    });
+
+    dialogRef.afterClosed().subscribe((result: string) => {
+      if (result === 'confirm') {
+        this.deleteUser(user)
+      }
+    });
+  }
 
 }
