@@ -39,8 +39,26 @@ select{
     gap: 5px;
 }
 
+.div-data-user{
+    width: 100%;
+}
+
+.div-data-user span {
+    padding-right: 4px;
+}
+
 .user-data{
     font-weight: 300;
+    font-size: 1em;
+    background-color: transparent;
+    border: none;
+    width: 80%;
+}
+
+.user-edit{
+    font-size: 1em;
+    padding: 2px;
+    font-weight: 400;
 }
 
 .edit-delete-icons{
@@ -54,8 +72,40 @@ select{
     height: 30px;
 }
 
+.confirmation-box{
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 280px;
+    height: 135px;
+    align-self: center;
+    padding: 10px;
+    gap: 20px;
+    border: 2px solid var(--secondColor);
+}
+
+.btns{
+    gap: 20px;
+}
+
+.save-btn, .cancel-btn{
+    background-color: var(--btnReadyOrder);
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 100px;
+    color: white;
+    font-size: .9em;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+.cancel-btn{
+    background-color: var(--secondColor);
+}
+
 .employee-register{
     width: 100%;
+    margin-top: 10px;
 }
 
 form input{
@@ -119,3 +169,4 @@ form  input::placeholder{
 .btn-register:hover{
     background-color: var(--secondColor);
 }
+

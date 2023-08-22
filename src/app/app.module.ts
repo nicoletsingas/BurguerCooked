@@ -15,7 +15,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.component';
 import { AdminEmployeesComponent } from './components/admin-employees/admin-employees.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ReadyOrdersComponent,
     AdminEmployeesComponent,
     AdminProductsComponent,
-    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +47,6 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ReadyOrdersComponent,
     AdminEmployeesComponent,
     AdminProductsComponent,
-    ConfirmDialogComponent
   ],
   providers: [
     AuthService

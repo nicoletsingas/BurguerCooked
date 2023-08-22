@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-admin-employees',
@@ -18,7 +16,6 @@ export class AdminEmployeesComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-    public dialog: MatDialog
   ) {}
 
     ngOnInit(): void {
@@ -88,16 +85,11 @@ export class AdminEmployeesComponent implements OnInit {
   }
 
   deleteUserConfirmation(user: any) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '300px',
-      data: { message: `Deseja mesmo excluir o usuário ${user.name}?`}
-    });
+    user.showConfirmation = true;
+  }
 
-    dialogRef.afterClosed().subscribe((result: string) => {
-      if (result === 'confirm') {
-        this.deleteUser(user)
-      }
-    });
+  cancelDeleteConfirmation(user: any) {
+    user.showConfirmation = false;
   }
 
 }
