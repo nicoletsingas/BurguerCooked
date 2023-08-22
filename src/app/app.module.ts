@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/commons/header/header.component';
@@ -14,6 +15,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.component';
 import { AdminEmployeesComponent } from './components/admin-employees/admin-employees.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     AdminComponent,
     ReadyOrdersComponent,
     AdminEmployeesComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule
   ],
   exports: [
     AppComponent,
@@ -44,7 +48,8 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     AdminComponent,
     ReadyOrdersComponent,
     AdminEmployeesComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    ConfirmDialogComponent
   ],
   providers: [
     AuthService

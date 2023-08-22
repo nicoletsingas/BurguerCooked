@@ -1,19 +1,38 @@
-<section class="employee-container">
+<section class="employee-container flexbox-column">
   <select [(ngModel)]="selectedView" (change)="onViewChange()" id="select-admin-employees">
     <option value="Escolha um filtro" selected disabled>Escolha um filtro</option>
     <option value="list">Lista de Funcionários</option>
     <option value="register">Cadastrar Funcionário</option>
   </select>
 
-  <section *ngIf="selectedView === 'list'" class="employee-data boxshadow flexbox-column">
-    <div *ngFor="let user of users" class="employee-item flexbox-column">
-      <span>Id: {{user.id}} </span>
-      <span>Nome: {{user.name}} </span>
-      <span>Email: {{user.email}} </span>
-      <span>Cargo: {{user.role}} </span>
-      <div class="edit-delete-icons flexbox">
-        <img src="../../../assets/edit-icon.svg" alt="edit icon">
-        <img src="../../../assets/icon-trash.svg" alt="delete icon">
+  <section *ngIf="selectedView === 'list'" class="employee-data flexbox-column">
+    <div *ngFor="let user of users" class="employee-item flexbox-column boxshadow">
+      <div>
+        <span>Id: </span>
+        <span class="user-data"> {{user.id}} </span>
+      </div>
+      <div>
+        <span>Nome: </span>
+        <input [(ngModel)]="user.name" *ngIf="!user.editing" [readonly]="user.editing" disabled type="text" class="user-data">
+        <input [(ngModel)]="user.name" *ngIf="user.editing" type="text">
+      </div>
+      <div>
+        <span>Email: </span>
+        <input [(ngModel)]="user.email" *ngIf="!user.editing" [readonly]="user.editing" disabled class="user-data" type="text">
+        <input [(ngModel)]="user.email" class="user-data" *ngIf="user.editing">
+      </div>
+      <div>
+        <span>Cargo: </span>
+        <input [(ngModel)]="user.role" *ngIf="!user.editing" [readonly]="user.editing" disabled class="user-data" type="text">
+        <input [(ngModel)]="user.role" class="user-data" *ngIf="user.editing">
+      </div>
+      <div *ngIf="!user.editing" class="edit-delete-icons flexbox">
+        <img (click)="toggleEdit(user)" src="../../../assets/edit-icon.svg" alt="edit icon">
+        <img (click)="deleteUserConfirmation(user)" src="../../../assets/icon-trash.svg" alt="delete icon">
+      </div>
+      <div *ngIf="user.editing" class="edit-delete-icons flexbox">
+        <button *ngIf="user.editing" (click)="updateUsersData(user)" class="save-btn">Salvar</button>
+        <button *ngIf="user.editing" (click)="cancelEdit(user)" class="cancel-btn" >Cancelar</button>
       </div>
     </div>
   </section>
