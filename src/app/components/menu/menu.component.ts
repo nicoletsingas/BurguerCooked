@@ -12,6 +12,7 @@ import { ResizeService } from 'src/app/services/resize.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, OnDestroy{
+  
   products: any[] = []; 
   currentProductType: string = 'Café da manhã'; 
   filteredProducts: any[] = [];
@@ -24,7 +25,7 @@ export class MenuComponent implements OnInit, OnDestroy{
     private authService: AuthService,
     private orderService: OrderService,
     private resizeService: ResizeService
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.productQuantitiesSubscription = this.orderService.productQuantities$.subscribe((quantities) => {
@@ -46,8 +47,8 @@ export class MenuComponent implements OnInit, OnDestroy{
     const token = localStorage.getItem('token');
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiURLProducts = 'http://localhost:8080/products';
-      this.http.get<any[]>(apiURLProducts, { headers }).subscribe((data) => {
+      const apiUrlProducts = 'http://localhost:8080/products';
+      this.http.get<any[]>(apiUrlProducts, { headers }).subscribe((data) => {
         this.products = data;
         this.filterProductsByType(this.currentProductType);
       },
