@@ -24,19 +24,54 @@ select{
     color: var(--firstColor);
     padding: 5px;
     font-size: .9em;
-    margin-top: 20px;
-}
-
-.products-list-titles{
-    justify-content: space-around;
+    margin: 20px 0px;
 }
 
 .products-list-container{
+    padding: 10px;
+    width: 300px;
+}
+
+.products-list-titles, .products-list-data{
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.products-list-titles span {
+    color: rgba(0, 0, 0, 0.397);
+}
+
+.products-list-data{
+    padding-top: 5px;
+}
+
+.products-list-data, .products-list-titles{
     border-bottom: solid 1px rgba(0, 0, 0, 0.20) ;
+}
+.product-id, .product-price{
+    width: 30px;
+}
+
+.product-name{
+    width: 130px;
+}
+
+.products-price-icons{
+    gap: 15px;
+}
+
+.product-price{
+    margin-right: 20px;
 }
 
 .icons-edit-trash img, .input-product-container img{
     height: 20px;
+}
+
+.icons-edit-trash {
+    align-items: center;
+    gap: 5px;
 }
 
 form input{
