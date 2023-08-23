@@ -5,24 +5,29 @@
     <option value="register">Cadastrar Produto</option>
   </select>
 
-  <section *ngIf="selectedView === 'list'" class="products-list-container boxshadow flexbox-column">
+  <section *ngIf="selectedView === 'list'" class="products-list-container boxshadow flexbox-column grid">
     <div class="products-list-titles flexbox">
       <span>ID</span>
       <span>Produto</span>
       <span>Preço</span>
+      <span>Ação</span>
     </div>
-    <div class="products-list-container flexbox">
-      <span>1</span>
-      <span>Café Americano</span>
-      <span>5</span>
-      <div class="icons-edit-trash flexbox">
-        <img src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
-        <img src="../../../assets/icon-trash.svg" alt="trash icon">
+    <div *ngFor="let product of products" class="products-list-data flexbox">
+      <div class="flexbox">
+        <span class="product-id">{{ product.id }}</span>
+        <span class="product-name">{{ product.name }}</span>
+      </div>
+      <div class="products-price-icons flexbox">
+        <span class="product-price">{{ product.price }}</span>
+        <div class="icons-edit-trash flexbox">
+          <img src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
+          <img src="../../../assets/icon-trash.svg" alt="trash icon">
+        </div>
       </div>
     </div>
   </section>
 
-  <section *ngIf="selectedView === 'register'" class="register-products-container">
+  <section *ngIf="selectedView === 'register'" class="register-products-container flexbox-column">
     <form action="">
       <div class="input-product-container flexbox">
         <img src="../../../assets/id-product-icon.svg" alt="product icon">

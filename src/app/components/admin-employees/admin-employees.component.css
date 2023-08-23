@@ -125,7 +125,7 @@ form  input::placeholder{
     color: #00000073;
 }
 
-.input-icon-container, .employee-position span{
+.input-icon-container, .span-role{
     background-color: var(--bgOrder);
     padding-left: 10px;
     border-radius: 10px;
@@ -151,8 +151,12 @@ form  input::placeholder{
 }
 
 .employee-position-active{
-    background-color: var(--secondColor);
     color: #FFFFFF;
+    background-color: var(--secondColor);
+}
+
+.employee-position-active:hover, .span-role:hover{
+    cursor: pointer;
 }
 
 .btn-register{

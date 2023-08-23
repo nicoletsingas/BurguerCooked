@@ -40,7 +40,6 @@ export class KitchenComponent implements OnInit{
       });
 
       this.http.get<any>('http://localhost:8080/orders', {headers}).subscribe((response) => {
-        console.log('resposta da API', response)
         this.pendingOrders = response.filter((order: Order) => order.status === 'pending');
         this.showImage = this.pendingOrders.length === 0;
       },
