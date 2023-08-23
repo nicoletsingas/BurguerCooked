@@ -11,9 +11,9 @@ export class AdminEmployeesComponent implements OnInit {
 
   selectedView: string = 'list';
   users: any[] = [];
-  saveCancelVisible: {[userIs: number]: boolean} = {};
+  saveCancelVisible: {[userId: number]: boolean} = {};
   selectedPosition: string = '';
-  employeedPositions: string[] = ['waiter', 'chef', 'admin'];
+  //employeedPositions: string[] = ['waiter', 'chef', 'admin'];
   employeeData = {
     name: '',
     email: '',
@@ -31,6 +31,7 @@ export class AdminEmployeesComponent implements OnInit {
 
   getEmployees() {
     const token = localStorage.getItem('token');
+
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const apiUrlUsers = 'http://localhost:8080/users';
@@ -54,7 +55,6 @@ export class AdminEmployeesComponent implements OnInit {
 
   toggleEdit(user: any) {
     user.editing = !user.editing;
-
     this.saveCancelVisible[user.id] = user.editing;
   }
 
@@ -101,6 +101,7 @@ export class AdminEmployeesComponent implements OnInit {
 
   registerEmployees() {
     const token = localStorage.getItem('token');
+
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const apiUrlUsers = 'http://localhost:8080/users';
@@ -108,9 +109,7 @@ export class AdminEmployeesComponent implements OnInit {
         ...this.employeeData,
         role: this.selectedPosition
       };
-      console.log( data);
       this.http.post<any[]>(apiUrlUsers, data, { headers }).subscribe((response)=> {
-        console.log('Funcionario cadastrado:', response);
         this.employeeData = {
           name: '',
           email: '',
@@ -124,8 +123,5 @@ export class AdminEmployeesComponent implements OnInit {
     }
 
   }
-
-
-
 
 }

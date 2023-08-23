@@ -11,6 +11,17 @@ export class AdminProductsComponent implements OnInit {
 
   selectedView: string = 'list';
   products: any [] = [];
+  saveCancelVisible: {[productId: number]: boolean} = {};
+  selectedType: string = '';
+  //productsType: string[] = ['Café da manhã', 'Almoço'];
+  productsData = {
+    id: '',
+    name: '',
+    price: '',
+    image: '',
+    details: '',
+    dateEntry: ''
+  };
 
   constructor(
     private http: HttpClient,
@@ -27,11 +38,89 @@ export class AdminProductsComponent implements OnInit {
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const apiUrlProducts = 'http://localhost:8080/products';
-      this.http.get<any>(apiUrlProducts, { headers }).subscribe((response) => {
-        this.products = response;
+      this.http.get<any>(apiUrlProducts, { headers }).subscribe((data) => {
+        this.products = data;
+        for (const product of data) {
+          product.editing = false;
+        }
       },
       (error) => {
         console.error('Erro ao obter produtos da API:', error);
+      });
+    }
+  }
+
+  toggleEdit(product: any) {
+    product.editing = !product.editing;
+    this.saveCancelVisible[product.id] = product.editing;
+  }
+
+  cancelEdit(product: any) {
+    product.editing = false;
+    this.saveCancelVisible[product.id] = false;
+  }
+
+  updateProductsData(product: any) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlProducts = `http://localhost:8080/products/${product.id}`;
+      this.http.patch<any[]>(apiUrlProducts, product, { headers }).subscribe((response) => {
+        product.editing = false;
+      },
+      (error) => {
+        console.error('Erro ao atualizar dados', error);
+      });
+    }
+  }
+
+  deleteProduct(product: any) {
+    const token = localStorage.getItem('token');
+    
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlProducts = `http://localhost:8080/products/${product.id}`;
+      this.http.delete<any[]>(apiUrlProducts, { headers }).subscribe((response) => {
+        this.products = this.products.filter(p => p.id !== product.id);
+      },
+      (error) => {
+        console.error('Erro ao excluir produto', error);
+      });
+    }
+  }
+
+  deleteProductConfirmation(product: any) {
+    product.showConfirmation = true;
+  }
+
+  cancelDeleteConfirmation(product: any) {
+    product.showConfirmation = false;
+  }
+
+  registerProducts() {
+    const token = localStorage.getItem('token');
+    
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlProducts = `http://localhost:8080/products`;
+      const data = {
+        ...this.productsData,
+        type: this.selectedType
+      };
+      this.http.post<any[]>(apiUrlProducts, data, { headers }).subscribe((response)=> {
+        this.productsData = {
+          id: '',
+          name: '',
+          price: '',
+          image: '',
+          details: '',
+          dateEntry: ''
+        };
+        this.selectedType = '';
+      },
+      (error) => {
+        console.error('Erro ao cadastrar produto:', error);
       });
     }
   }
