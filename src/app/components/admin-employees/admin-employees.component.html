@@ -45,28 +45,28 @@
   </section>
 
   <section *ngIf="selectedView === 'register'" class="employee-register flexbox-column">
-    <form action="">
+    <form (ngOnSubmit)="registerEmployees()">
       <div class="input-icon-container flexbox">
         <img src="../../../assets/user.svg" alt="user icon">
-        <input type="text" id="name-input" name="name" placeholder="Insira o nome do funcionário">
+        <input [(ngModel)]="employeeData.name" type="text" id="name-input" name="name" placeholder="Insira o nome do funcionário">
       </div>
       <div class="input-icon-container flexbox">
         <img src="../../../assets/icon-email.svg" alt="user icon">
-        <input type="email" id="email-input" name="email" placeholder="Insira o email do funcionário">
+        <input [(ngModel)]="employeeData.email" type="email" id="email-input" name="email" placeholder="Insira o email do funcionário">
       </div>
       <div class="input-icon-container flexbox">
         <img src="../../../assets/password.svg" alt="user icon">
-        <input type="password" id="pass-input" name="password" placeholder="Insira a senha">
+        <input [(ngModel)]="employeeData.password" type="password" id="pass-input" name="password" placeholder="Insira a senha">
       </div>
     </form>
     <div class="flexbox-column">
       <span class="select-the-position">Selecione o cargo:</span>
       <div class="employee-position flexbox">
-        <span>Waiter</span>
-        <span>Chef</span>
-        <span>Admin</span>
+        <span (click)="selectedPosition = 'waiter'" [ngClass]="{'employee-position-active': selectedPosition === 'waiter'}" class="span-role">Waiter</span>
+        <span (click)="selectedPosition = 'chef'" [ngClass]="{'employee-position-active': selectedPosition === 'chef'}" class="span-role">Chef</span>
+        <span (click)="selectedPosition = 'admin'" [ngClass]="{'employee-position-active': selectedPosition === 'admin'}" class="span-role">Admin</span>
       </div>
     </div>
-    <button class="btn-register">Criar Cadastro</button>
+    <button (click)="registerEmployees()" type="submit" class="btn-register">Criar Cadastro</button>
   </section>
 </section>

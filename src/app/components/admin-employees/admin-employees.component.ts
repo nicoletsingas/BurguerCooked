@@ -12,15 +12,22 @@ export class AdminEmployeesComponent implements OnInit {
   selectedView: string = 'list';
   users: any[] = [];
   saveCancelVisible: {[userIs: number]: boolean} = {};
+  selectedPosition: string = '';
+  employeedPositions: string[] = ['waiter', 'chef', 'admin'];
+  employeeData = {
+    name: '',
+    email: '',
+    password: ''
+  };
 
   constructor(
     private http: HttpClient,
     private authService: AuthService,
   ) {}
 
-    ngOnInit(): void {
-      this.getEmployees();
-    }
+  ngOnInit(): void {
+    this.getEmployees();
+  }
 
   getEmployees() {
     const token = localStorage.getItem('token');
@@ -34,7 +41,7 @@ export class AdminEmployeesComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Erro ao obter usuarios da API:', error)
+        console.error('Erro ao obter usuarios da API:', error);
       });
     }
   }
@@ -65,7 +72,7 @@ export class AdminEmployeesComponent implements OnInit {
         user.editing = false;
       },
       (error) => {
-        console.error('Erro ao atualizar dados', error)
+        console.error('Erro ao atualizar dados', error);
       });
     }
   }
@@ -79,7 +86,7 @@ export class AdminEmployeesComponent implements OnInit {
         this.users = this.users.filter(u => u.id !== user.id);
       },
       (error) => {
-        console.error('Erro ao excluir usuário', error)
+        console.error('Erro ao excluir usuário', error);
       });
     }
   }
@@ -91,5 +98,34 @@ export class AdminEmployeesComponent implements OnInit {
   cancelDeleteConfirmation(user: any) {
     user.showConfirmation = false;
   }
+
+  registerEmployees() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const apiUrlUsers = 'http://localhost:8080/users';
+      const data = {
+        ...this.employeeData,
+        role: this.selectedPosition
+      };
+      console.log( data);
+      this.http.post<any[]>(apiUrlUsers, data, { headers }).subscribe((response)=> {
+        console.log('Funcionario cadastrado:', response);
+        this.employeeData = {
+          name: '',
+          email: '',
+          password: ''
+        };
+        this.selectedPosition = '';
+      },
+      (error) => {
+        console.error('Erro ao cadastrar funcionário:', error);
+      });
+    }
+
+  }
+
+
+
 
 }

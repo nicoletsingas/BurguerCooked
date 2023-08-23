@@ -32,17 +32,14 @@ export class AuthService {
     return localStorage.getItem('token') !== null ;
   }
 
-  // Obter o email do usuario logado
   getUserEmail(): string | null {
     return localStorage.getItem('userEmail');
   }
 
-  // Armazenar o token no localStorage após o login
   storageToken(token: string) {
     localStorage.setItem('token', token);
   }
 
-  // Remover o token após logout
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userEmail');
