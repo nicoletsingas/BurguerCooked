@@ -15,52 +15,65 @@
     <div *ngFor="let product of products" class="products-list-data flexbox">
       <div class="flexbox">
         <span class="product-id">{{ product.id }}</span>
-        <span class="product-name">{{ product.name }}</span>
+        <input [(ngModel)]="product.name" *ngIf="!product.editing" disabled type="text">
+        <input [(ngModel)]="product.name" *ngIf="product.editing" class="user-edit" type="text">
       </div>
       <div class="products-price-icons flexbox">
-        <span class="product-price">{{ product.price }}</span>
-        <div class="icons-edit-trash flexbox">
-          <img src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
-          <img src="../../../assets/icon-trash.svg" alt="trash icon">
+        <input [(ngModel)]="product.price" *ngIf="!product.editing" disabled class="product-price" type="text">
+        <input [(ngModel)]="product.price" *ngIf="product.editing" type="text">
+        <div *ngIf="!product.editing" class="icons-edit-trash flexbox">
+          <img (click)="toggleEdit(product)" src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
+          <img (click)="deleteProductConfirmation(product)" src="../../../assets/icon-trash.svg" alt="trash icon">
+        </div>
+      </div>
+      <div *ngIf="product.editing" class="edit-delete-icons flexbox">
+        <button *ngIf="product.editing" (click)="updateProductsData(product)" class="save-btn">Salvar</button>
+        <button *ngIf="product.editing" (click)="cancelEdit(product)" class="cancel-btn" >Cancelar</button>
+      </div>
+      <div *ngIf="product.showConfirmation" class="confirmation-box flexbox-column boxshadow">
+        <p>Tem certeza que deseja excluir o produto {{product.name}}?</p>
+        <div class="btns flexbox">
+          <button (click)="deleteProduct(product)" class="save-btn">Confirmar</button>
+          <button (click)="cancelDeleteConfirmation(product)" class="cancel-btn">Cancelar</button>
         </div>
       </div>
     </div>
   </section>
 
   <section *ngIf="selectedView === 'register'" class="register-products-container flexbox-column">
-    <form action="">
+    <form (ngSubmit)="registerProducts()">
       <div class="input-product-container flexbox">
         <img src="../../../assets/id-product-icon.svg" alt="product icon">
-        <input type="text" id="id-product-input" name="id-product" placeholder="Id do produto">
+        <input [(ngModel)]="productsData.id" type="text" name="id-product" placeholder="Id do produto">
       </div>
       <div class="input-product-container flexbox">
         <img src="../../../assets/tag-product-icon.svg" alt="product icon">
-        <input type="text" id="name-product-input" name="name-product" placeholder="Nome do produto">
+        <input [(ngModel)]="productsData.name" type="text" name="name-product" placeholder="Nome do produto">
       </div>
       <div class="input-product-container flexbox">
         <img src="../../../assets/icon-price.svg" alt="price icon">
-        <input type="text" id="price-product-input" name="price-product" placeholder="Preço do produto">
+        <input [(ngModel)]="productsData.price" type="text" name="price-product" placeholder="Preço do produto">
       </div>
       <div class="input-product-container flexbox">
         <img src="../../../assets/image-icon.svg" alt="imageicon">
-        <input type="text" id="image-product-input" name="image-product" placeholder="URL da imagem">
+        <input [(ngModel)]="productsData.image" type="text" name="image-product" placeholder="URL da imagem">
       </div>
       <div class="input-product-container flexbox">
         <img src="../../../assets/details-icon.svg" alt="details icon">
-        <input type="text" id="details-product-input" name="details-product" placeholder="Detalhes do produto">
+        <input [(ngModel)]="productsData.details" type="text" name="details-product" placeholder="Detalhes do produto">
       </div>
       <div class="input-product-container flexbox">
         <img src="../../../assets/calendar-icon.svg" alt="data icon">
-        <input type="text" id="data-product-input" name="data-product" placeholder="dd/mm/aaaa">
+        <input [(ngModel)]="productsData.dateEntry" type="date" name="data-product">
       </div>
     </form>
     <div class="flexbox-column">
       <span class="select-category">Selecione a Categoria:</span>
       <div class="product-category flexbox">
-        <span>Café da manhã</span>
-        <span>Almoço</span>
+        <span (click)="selectedType = 'Café da manhã'" [ngClass]="{'product-category-active': selectedType === 'Café da manhã'}">Café da manhã</span>
+        <span (click)="selectedType = 'Almoço'" [ngClass]="{'product-category-active': selectedType === 'Almoço'}">Almoço</span>
       </div>
     </div>
-    <button class="btn-register">Cadastrar Produto</button>
+    <button (click)="registerProducts()" class="btn-register">Cadastrar Produto</button>
   </section>
 </section>

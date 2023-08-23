@@ -45,7 +45,7 @@
   </section>
 
   <section *ngIf="selectedView === 'register'" class="employee-register flexbox-column">
-    <form (ngOnSubmit)="registerEmployees()">
+    <form (ngSubmit)="registerEmployees()">
       <div class="input-icon-container flexbox">
         <img src="../../../assets/user.svg" alt="user icon">
         <input [(ngModel)]="employeeData.name" type="text" id="name-input" name="name" placeholder="Insira o nome do funcionário">
