@@ -13,7 +13,6 @@ export class AdminEmployeesComponent implements OnInit {
   users: any[] = [];
   saveCancelVisible: {[userId: number]: boolean} = {};
   selectedPosition: string = '';
-  //employeedPositions: string[] = ['waiter', 'chef', 'admin'];
   employeeData = {
     name: '',
     email: '',
