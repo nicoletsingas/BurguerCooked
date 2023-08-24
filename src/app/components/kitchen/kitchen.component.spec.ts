@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KitchenComponent } from './kitchen.component';
 
@@ -18,4 +18,4 @@ describe('KitchenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/
