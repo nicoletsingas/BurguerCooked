@@ -37,6 +37,7 @@ select{
     align-items: start;
     padding: 10px;
     gap: 5px;
+    margin-bottom: 10px;
 }
 
 .div-data-user{
@@ -174,3 +175,10 @@ form  input::placeholder{
     background-color: var(--secondColor);
 }
 
+
+@media screen and (min-width: 900px){
+    .employee-data{
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+    }
+}
