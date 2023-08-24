@@ -15,20 +15,20 @@
     <div *ngFor="let product of products" class="products-list-data flexbox">
       <div class="flexbox">
         <span class="product-id">{{ product.id }}</span>
-        <input [(ngModel)]="product.name" *ngIf="!product.editing" disabled type="text">
-        <input [(ngModel)]="product.name" *ngIf="product.editing" class="user-edit" type="text">
+        <input [(ngModel)]="product.name" *ngIf="!product.editing" disabled class="product-name user-data" type="text">
+        <input [(ngModel)]="product.name" *ngIf="product.editing" class="edit-product-name" type="text">
       </div>
       <div class="products-price-icons flexbox">
-        <input [(ngModel)]="product.price" *ngIf="!product.editing" disabled class="product-price" type="text">
-        <input [(ngModel)]="product.price" *ngIf="product.editing" type="text">
+        <input [(ngModel)]="product.price" *ngIf="!product.editing" disabled class="product-price user-data" type="text">
+        <input [(ngModel)]="product.price" *ngIf="product.editing" class="edit-product-price" type="text">
         <div *ngIf="!product.editing" class="icons-edit-trash flexbox">
           <img (click)="toggleEdit(product)" src="../../../assets/edit-pen-icon.svg" alt="edit pen icon">
           <img (click)="deleteProductConfirmation(product)" src="../../../assets/icon-trash.svg" alt="trash icon">
         </div>
       </div>
-      <div *ngIf="product.editing" class="edit-delete-icons flexbox">
+      <div *ngIf="product.editing" class="btns-save-cancel flexbox-column">
         <button *ngIf="product.editing" (click)="updateProductsData(product)" class="save-btn">Salvar</button>
-        <button *ngIf="product.editing" (click)="cancelEdit(product)" class="cancel-btn" >Cancelar</button>
+        <button *ngIf="product.editing" (click)="cancelEdit(product)" class="cancel-btn">Cancelar</button>
       </div>
       <div *ngIf="product.showConfirmation" class="confirmation-box flexbox-column boxshadow">
         <p>Tem certeza que deseja excluir o produto {{product.name}}?</p>
@@ -70,8 +70,8 @@
     <div class="flexbox-column">
       <span class="select-category">Selecione a Categoria:</span>
       <div class="product-category flexbox">
-        <span (click)="selectedType = 'Café da manhã'" [ngClass]="{'product-category-active': selectedType === 'Café da manhã'}">Café da manhã</span>
-        <span (click)="selectedType = 'Almoço'" [ngClass]="{'product-category-active': selectedType === 'Almoço'}">Almoço</span>
+        <span (click)="selectedType = 'Café da manhã'" [ngClass]="{'product-category-active': selectedType === 'Café da manhã'}" class="span-type">Café da manhã</span>
+        <span (click)="selectedType = 'Almoço'" [ngClass]="{'product-category-active': selectedType === 'Almoço'}" class="span-type">Almoço</span>
       </div>
     </div>
     <button (click)="registerProducts()" class="btn-register">Cadastrar Produto</button>

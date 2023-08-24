@@ -1,27 +1,50 @@
-# 3dBurguer
+# BurguerCooked
+>SAP010 Laboratória
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+# Índice
 
-## Development server
+* [1. Prefácio](#1-prefácio)
+* [2. Resumo do projeto](#2-resumo-do-projeto)
+* [3. Histórias de usuário](#3-histórias-de-usuario)
+* [4. Tecnologias Utilizadas](#4-tecnologias-utilizadas)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Prefácio🤩
+Uma pequena hamburgueria com a temática do jogo Overcooked que está crescendo e precisa de uma interface 100% responsiva, voltado para realizar pedidos utilizando um tablet e enviá-los para a cozinha para que sejam preparados e após, notificados aos garçons para que sejam entregues aos clientes.
 
-## Code scaffolding
+## 2. Resumo do projeto📝
+Quinto projeto desenvolvido para o bootcamp da Laboratória. Neste projeto foi desenvolvido um sistema de pedidos para uma hamburgueria, onde esta, possui dois tipos de cardápios (café da manhã e almoço) e o garçom deve ser capaz de anotar o pedido do cliente e envia-lo a cozinha. O cozinheiro deve se autenticar no sistema e ter acesso aos pedidos pendentes e concluídos. O Administrador do sistema deve ter acesso a conseguir cadastrar, editar ou excluir produtos e funcionários da hamburgueria.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 3. Histórias de usuário📝
 
-## Build
+<strong>História de usuário 1:</strong>  Garçom/Garçonete deve poder entrar no sistema, caso o admin já lhe tenha dado as credenciais. Eu, como garçom/garçonete quero entrar no sistema de pedidos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<strong>História de usuário 2:</strong> Garçom/Garçonete deve ser capaz de anotar o pedido do cliente. Eu como garçom/garçonete quero poder anotar o pedido de um cliente para não depender da minha memória, saber quanto cobrar e poder enviar os pedidos para a cozinha para serem preparados em ordem.
 
-## Running unit tests
+<strong>História de usuário 3:</strong> Chefe de cozinha deve ver os pedidos.
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<strong>História de usuário 4:</strong> Garçom/Garçonete deve ver os pedidos prontos para servir. Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
 
-## Running end-to-end tests
+<strong>História de usuário 5:</strong> Administrador(a) de loja deve administrar seus funcionários. Eu como administrador(a) de loja quero gerenciar os usuários da plataforma para manter atualizado as informações de meus funcionários.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<strong>História de usuário 6:</strong> Administrador(a) de loja deve administrar os produtos. Eu como administrador(a) de loja quero gerenciar os produtos para manter atualizado o menu.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Desenho de interface do usuário
+
+#### Protótipo de alta fidelidade Mobile
+![prototipo-mobile](./src/assets/figma-mobile.png)
+
+#### Protótipo de alta fidelidade Mobile Administrador
+![prototipo-mobile](./src/assets/figma-admin.png)
+
+#### Protótipo de alta fidelidade Desktop
+![prototipo-desktop](./src/assets/figma-desktop.png)
+
+
+
+## 4. Tecnologias Utilizadas✅ 
+<img alt="HTML" height="50" src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-html-markup-develop-layout-language-512.png"> <img alt="CSS" height="50" src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-css-style-develop-layout-language-512.png"> <img alt="TS" height="45" src="https://www.typescripttutorial.net/wp-content/uploads/2020/04/favicon.png"> <img alt="Angular" height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png"> 
+<img alt="Figma" height="45" src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/3000/figma-logo-256.png"/> <img alt="git" height="40" src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-256.png"/> <img alt="github" height="45" src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/github-256.png"/>
+
+
