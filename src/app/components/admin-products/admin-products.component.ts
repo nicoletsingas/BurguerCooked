@@ -13,7 +13,6 @@ export class AdminProductsComponent implements OnInit {
   products: any [] = [];
   saveCancelVisible: {[productId: number]: boolean} = {};
   selectedType: string = '';
-  //productsType: string[] = ['Café da manhã', 'Almoço'];
   productsData = {
     id: '',
     name: '',

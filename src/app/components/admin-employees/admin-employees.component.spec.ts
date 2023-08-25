@@ -2,8 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AdminEmployeesComponent } from './admin-employees.component';
-import { AuthService } from 'src/app/services/auth.service';
-
 
 describe('AdminEmployeesComponent', () => {
   let component: AdminEmployeesComponent;
@@ -14,7 +12,6 @@ describe('AdminEmployeesComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, FormsModule],
       declarations: [AdminEmployeesComponent],
-      providers: [AuthService]
     }).compileComponents();
   });
 
@@ -61,7 +58,6 @@ describe('AdminEmployeesComponent', () => {
     component.employeeData = { ...employeeData };
     component.selectedPosition = 'waiter';
     component.registerEmployees()
-
     const req = httpMock.expectOne(apiUrlUsers);
     expect(req.request.method).toBe('POST');
   });
