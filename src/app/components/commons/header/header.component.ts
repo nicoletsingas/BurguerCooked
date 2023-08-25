@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit{
   userRole: string | null;
   showReadyOrders: boolean = false;
   
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
     this.userEmail = authService.getUserEmail();
     this.isLoggedIn = authService.isUserLoggedIn();
     this.userRole = localStorage.getItem('userRole');
