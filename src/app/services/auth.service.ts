@@ -7,15 +7,13 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/login';
+  public apiUrl = 'http://localhost:8080/login';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   async login (email: string, password: string): Promise<boolean> {
     const userLogin = { email, password }
     const response = await firstValueFrom(this.http.post<any>(this.apiUrl, userLogin));
-
-    console.log(response);
 
     if (response.accessToken) {
       localStorage.setItem('token', response.accessToken); 

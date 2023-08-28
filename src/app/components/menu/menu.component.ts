@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit, OnDestroy{
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-    private orderService: OrderService,
+    public orderService: OrderService,
     private resizeService: ResizeService
   ) {}
 

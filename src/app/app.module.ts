@@ -15,6 +15,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ReadyOrdersComponent } from './components/ready-orders/ready-orders.component';
 import { AdminEmployeesComponent } from './components/admin-employees/admin-employees.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     AdminProductsComponent,
   ],
   providers: [
-    AuthService
+    AuthService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

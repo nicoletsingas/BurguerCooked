@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class OrderService {
 
   private addedProducts: any[] = [];
-  private productQuantities: { [productId: number]: number} = {};
+  public productQuantities: { [productId: number]: number} = {};
   private addedProductSubject = new BehaviorSubject<any>(null);
   private productQuantitiesSubject = new BehaviorSubject<{[productId: number]: number}>({});
   addedProduct$ = this.addedProductSubject.asObservable();
