@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -52,7 +51,7 @@ export class OrderComponent implements OnDestroy {
   }
 
   calculateTax(subtotal: number): number {
-    return subtotal * 0.1; //calcular 10% sob o subtotal
+    return subtotal * 0.1;
   }  
 
   calculateTotal(subtotal: number, tax: number): number {
