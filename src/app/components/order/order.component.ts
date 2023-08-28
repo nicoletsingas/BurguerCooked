@@ -86,7 +86,6 @@ export class OrderComponent implements OnDestroy {
       });
       this.http.post('http://localhost:8080/orders', order, {headers}).subscribe(
       (response) => {
-        console.log(response + 'enviado a API');
         this.sentToKitchen = true;
         setTimeout(() => {
           this.sentToKitchen = false;
