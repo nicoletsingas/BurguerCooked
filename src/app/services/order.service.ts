@@ -9,7 +9,7 @@ export class OrderService {
   private addedProducts: any[] = [];
   public productQuantities: { [productId: number]: number} = {};
   private addedProductSubject = new BehaviorSubject<any>(null);
-  private productQuantitiesSubject = new BehaviorSubject<{[productId: number]: number}>({});
+  public productQuantitiesSubject = new BehaviorSubject<{[productId: number]: number}>({});
   addedProduct$ = this.addedProductSubject.asObservable();
   productQuantities$ = this.productQuantitiesSubject.asObservable();
 
@@ -62,7 +62,6 @@ export class OrderService {
     }
     this.productQuantitiesSubject.next(quantities);
   }
-
 
 }
 

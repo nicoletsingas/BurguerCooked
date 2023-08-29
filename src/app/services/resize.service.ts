@@ -28,5 +28,4 @@ export class ResizeService {
     return window.innerWidth > BREAKPOINT;
   }
 
-
 }
