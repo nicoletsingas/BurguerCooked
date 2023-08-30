@@ -120,7 +120,6 @@ export class AdminEmployeesComponent implements OnInit {
         console.error('Erro ao cadastrar funcionário:', error);
       });
     }
-
   }
 
 }

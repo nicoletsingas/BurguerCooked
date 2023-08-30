@@ -3,25 +3,34 @@ import { OrderComponent } from './order.component';
 import { AppModule } from 'src/app/app.module';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { OrderService } from 'src/app/services/order.service';
+import { HttpClient } from '@angular/common/http';
+import { of, throwError } from 'rxjs';
 
 describe('OrderComponent', () => {
   let component: OrderComponent;
   let fixture: ComponentFixture<OrderComponent>;
   let httpMock: HttpTestingController;
   let orderService: OrderService;
+  let httpClient: HttpClient; 
+  let mockLocation: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, AppModule],
       declarations: [OrderComponent],
-      providers: [OrderService]
-    });
+      providers: [
+        OrderService,
+        HttpClient,
+        { provide: Location, useValue: mockLocation }
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     httpMock = TestBed.inject(HttpTestingController);
     orderService = TestBed.inject(OrderService);
+    httpClient = TestBed.inject(HttpClient);
 
     spyOn(localStorage, 'getItem').and.returnValue('token');
   });
@@ -49,17 +58,33 @@ describe('OrderComponent', () => {
     expect(total).toEqual(100 + 10);
   });
 
+  it ('should call orderService.deleteProduct and delete a product', () => {
+    const productId = 1;
+    spyOn(orderService, 'deleteProduct');
+    component.deleteProduct(productId);
+    expect(orderService.deleteProduct).toHaveBeenCalledWith(productId);
+  });
+
+  it ('should handle an error when send orders to api fails', () => {
+    const mockError = { message: 'Error message' };
+
+    spyOn(httpClient, 'post').and.returnValue(throwError(mockError));
+    spyOn(console, 'error');
+
+    component.sendOrderToAPI();
+    expect(httpClient.post).toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalledWith(
+      'Falha ao enviar resposta para a API:',
+      mockError.message
+    );
+  });
+
   it ('should send orders to Api and reset values', () => {
-    component.clientName = 'Nicole';
-    component.selectedTable =  '1';
-    component.loggedInUsername = 'Floquinho'
     component.addedProducts = [{ product: { name: 'HotDog' }, quantity: 2 }];
     component.sendOrderToAPI();
     const req = httpMock.expectOne('http://localhost:8080/orders');
-    //req.flush({});
+    req.flush({});
     expect(req.request.method).toBe('POST');
-    //expect(component.sentToKitchen).toBe(true);
+    expect(component.sentToKitchen).toBe(true);
   });
-
-
 });
