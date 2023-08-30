@@ -39,7 +39,7 @@ export class KitchenComponent implements OnInit{
         Authorization: `Bearer ${token}`
       });
 
-      this.http.get<any>('http://localhost:8080/orders', {headers}).subscribe((response) => {
+      this.http.get<any>('https://burger-queen-api-mock-lac.vercel.app/orders', {headers}).subscribe((response) => {
         this.pendingOrders = response.filter((order: Order) => order.status === 'pending');
         this.showImage = this.pendingOrders.length === 0;
       },
@@ -65,7 +65,7 @@ export class KitchenComponent implements OnInit{
         completedDate: new Date().toLocaleDateString()
       };
 
-      this.http.patch<any>(`http://localhost:8080/orders/${order.id}`, updatedOrder, { headers }).subscribe(() => {
+      this.http.patch<any>(`https://burger-queen-api-mock-lac.vercel.app/orders/${order.id}`, updatedOrder, { headers }).subscribe(() => {
         this.moveOrderToCompletedList(order);
       },
       (error) => {
@@ -91,7 +91,7 @@ export class KitchenComponent implements OnInit{
         Authorization: `Bearer ${token}`
       });
 
-      this.http.get<any>('http://localhost:8080/orders', { headers }).subscribe((response) => {
+      this.http.get<any>('https://burger-queen-api-mock-lac.vercel.app/orders', { headers }).subscribe((response) => {
         this.completedOrders = response.filter((order: Order) => order.status === 'completed');
       },
       (error) => {

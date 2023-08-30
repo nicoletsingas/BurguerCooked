@@ -83,7 +83,7 @@ export class OrderComponent implements OnDestroy {
       const headers = new HttpHeaders({
         Authorization: `Bearer ${token}`
       });
-      this.http.post('http://localhost:8080/orders', order, {headers}).subscribe(
+      this.http.post('https://burger-queen-api-mock-lac.vercel.app/orders', order, {headers}).subscribe(
       (response) => {
         this.sentToKitchen = true;
         setTimeout(() => {

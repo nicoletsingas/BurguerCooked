@@ -36,7 +36,7 @@ export class AdminProductsComponent implements OnInit {
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = 'http://localhost:8080/products';
+      const apiUrlProducts = 'https://burger-queen-api-mock-lac.vercel.app/products';
       this.http.get<any>(apiUrlProducts, { headers }).subscribe((data) => {
         this.products = data;
         for (const product of data) {
@@ -64,7 +64,7 @@ export class AdminProductsComponent implements OnInit {
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = `http://localhost:8080/products/${product.id}`;
+      const apiUrlProducts = `https://burger-queen-api-mock-lac.vercel.app/products/${product.id}`;
       this.http.patch<any[]>(apiUrlProducts, product, { headers }).subscribe((response) => {
         product.editing = false;
       },
@@ -79,7 +79,7 @@ export class AdminProductsComponent implements OnInit {
     
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = `http://localhost:8080/products/${product.id}`;
+      const apiUrlProducts = `https://burger-queen-api-mock-lac.vercel.app/products/${product.id}`;
       this.http.delete<any[]>(apiUrlProducts, { headers }).subscribe((response) => {
         this.products = this.products.filter(p => p.id !== product.id);
       },
@@ -102,7 +102,7 @@ export class AdminProductsComponent implements OnInit {
     
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = `http://localhost:8080/products`;
+      const apiUrlProducts = `https://burger-queen-api-mock-lac.vercel.app/products`;
       const data = {
         ...this.productsData,
         type: this.selectedType
