@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  public apiUrl = 'http://localhost:8080/login';
+  public apiUrl = 'https://burger-queen-api-mock-lac.vercel.app/login';
 
   constructor(private http: HttpClient, private router: Router) { }
 

@@ -47,7 +47,7 @@ export class MenuComponent implements OnInit, OnDestroy{
     const token = localStorage.getItem('token');
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = 'http://localhost:8080/products';
+      const apiUrlProducts = 'https://burger-queen-api-mock-lac.vercel.app/products';
       this.http.get<any[]>(apiUrlProducts, { headers }).subscribe((data) => {
         this.products = data;
         this.filterProductsByType(this.currentProductType);

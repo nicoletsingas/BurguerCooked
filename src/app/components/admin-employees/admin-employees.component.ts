@@ -33,7 +33,7 @@ export class AdminEmployeesComponent implements OnInit {
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlUsers = 'http://localhost:8080/users';
+      const apiUrlUsers = 'https://burger-queen-api-mock-lac.vercel.app/users';
       this.http.get<any[]>(apiUrlUsers, { headers }).subscribe((data) => {
         this.users = data;
         for (const user of data) {
@@ -66,7 +66,7 @@ export class AdminEmployeesComponent implements OnInit {
     const token = localStorage.getItem('token');
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlUsers = `http://localhost:8080/users/${user.id}`;
+      const apiUrlUsers = `https://burger-queen-api-mock-lac.vercel.app/users/${user.id}`;
       this.http.patch<any[]>(apiUrlUsers, user, { headers }).subscribe((response) => {
         user.editing = false;
       },
@@ -80,7 +80,7 @@ export class AdminEmployeesComponent implements OnInit {
     const token = localStorage.getItem('token');
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlUsers = `http://localhost:8080/users/${user.id}`;
+      const apiUrlUsers = `https://burger-queen-api-mock-lac.vercel.app/users/${user.id}`;
       this.http.delete<any[]>(apiUrlUsers, { headers }).subscribe(() => {
         this.users = this.users.filter(u => u.id !== user.id);
       },
@@ -103,7 +103,7 @@ export class AdminEmployeesComponent implements OnInit {
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlUsers = 'http://localhost:8080/users';
+      const apiUrlUsers = 'https://burger-queen-api-mock-lac.vercel.app/users';
       const data = {
         ...this.employeeData,
         role: this.selectedPosition
