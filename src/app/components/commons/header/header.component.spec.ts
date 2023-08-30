@@ -38,4 +38,22 @@ describe('HeaderComponent', () => {
     expect(component.isLoggedIn).toBe(false);
   });
 
+  it('should toggle order component', () => {
+    const initialShowOrderComponent = component.showOrderComponent;
+    component.toggleOrderComponent(true);
+    expect(component.showOrderComponent).toBe(true);
+    component.toggleOrderComponent(false);
+    expect(component.showOrderComponent).toBe(false);
+    expect(component.showOrderComponent).toBe(initialShowOrderComponent);
+  });
+
+  it('should toggle ready orders', () => {
+    const initialShowReadyOrders = component.showReadyOrders;
+    component.toggleReadyOrders(true);
+    expect(component.showReadyOrders).toBe(true);
+    component.toggleReadyOrders(false);
+    expect(component.showReadyOrders).toBe(false);
+    expect(component.showReadyOrders).toBe(initialShowReadyOrders);
+  });
+
 });

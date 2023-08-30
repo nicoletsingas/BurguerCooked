@@ -26,26 +26,38 @@ describe('LoginComponent', () => {
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-    spyOn(localStorage, 'getItem').and.callFake((key: string) => {
-      if (key === 'userRole') {
-        return 'waiter';
-      }
-      return null;
-    });
   });
 
   it('should create a component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should navigate to correct route when login success', async () => {
-    authService.login.and.returnValue(Promise.resolve(true));
-    authService.isUserLoggedIn.and.returnValue(true);
-    component.email = 'test@burguercooked.com';
-    component.password = 'password123';
+  it('should navigate to the correct route on successful login', async () => {
+    authService.login.and.resolveTo(true);
+    localStorage.setItem('userRole', 'waiter');
     await component.onLogin();
     expect(router.navigate).toHaveBeenCalledWith(['/menu']);
   });
 
+  it('should navigate to the correct route based on user role', async () => {
+    authService.login.and.resolveTo(true);
+    localStorage.setItem('userRole', 'chef');
+    await component.onLogin();
+    expect(router.navigate).toHaveBeenCalledWith(['/kitchen']);
+  });
+
+  it('should navigate to the correct route for admin role', async () => {
+    authService.login.and.resolveTo(true);
+    localStorage.setItem('userRole', 'admin');
+    await component.onLogin();
+    expect(router.navigate).toHaveBeenCalledWith(['/admin']);
+  });
+
+  it('should set errorLogin to true on login failure', async () => {
+    authService.login.and.resolveTo(false);
+    await component.onLogin();
+    expect(component.errorLogin).toBeTrue();
+  });
+
 });
+ 

@@ -49,6 +49,17 @@ describe('KitchenComponent', () => {
     expect(component.moveOrderToCompletedList).toHaveBeenCalledWith(order);
   });
 
+  it ('should move order to completed list', () => {
+    const order = {id: 1, completeddate: ''};
+    const initialCompletedOrdersLength = component.completedOrders.length;
+    const initialPendingOrdersLength = component.pendingOrders.length;
+    component.moveOrderToCompletedList(order);
+    expect(component.completedOrders.length).toBe(initialCompletedOrdersLength + 1);
+    expect(component.completedOrders[initialCompletedOrdersLength].id).toBe(order.id);
+    expect(component.pendingOrders.length).toBe(initialPendingOrdersLength - 0);
+    expect(component.pendingOrders.some(pendingOrder => pendingOrder.id === order.id)).toBe(false);
+  });
+
   it ('should get the completed orders list', () => {
     const order = [{id: 1, status: 'completed'}]
     component.getCompletedOrders();

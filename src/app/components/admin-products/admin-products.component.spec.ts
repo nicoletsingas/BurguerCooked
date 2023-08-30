@@ -36,6 +36,20 @@ describe('AdminProductsComponent', () => {
     expect(req.request.method).toBe('GET');
   });
 
+  it ('should toggle editing', () => {
+    const product = { id: 1, editing: false };
+    component.toggleEdit(product);
+    expect(product.editing).toBe(true);
+    expect(component.saveCancelVisible[product.id]).toBe(true);
+  });
+
+  it('should cancel editing', () => {
+    const product = { id: 1, editing: true };
+    component.cancelEdit(product);
+    expect(product.editing).toBe(false);
+    expect(component.saveCancelVisible[product.id]).toBe(false);
+  });
+
   it ('should update products data', () => {
     const product = {id: 1, name: 'bolacha', price: 2 }
     component.updateProductsData(product);
@@ -48,6 +62,18 @@ describe('AdminProductsComponent', () => {
     component.deleteProduct(product);
     const req = httpMock.expectOne(`http://localhost:8080/products/${product.id}`);
     expect(req.request.method).toBe('DELETE');
+  });
+
+  it('should show delete confirmation', () => {
+    const product = { showConfirmation: false };
+    component.deleteProductConfirmation(product);
+    expect(product.showConfirmation).toBe(true);
+  });
+
+  it('should cancel delete confirmation', () => {
+    const product = { showConfirmation: true };
+    component.cancelDeleteConfirmation(product);
+    expect(product.showConfirmation).toBe(false);
   });
 
   it ('should register a new product', () => {

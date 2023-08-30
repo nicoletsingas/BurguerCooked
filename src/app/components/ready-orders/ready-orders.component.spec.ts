@@ -24,6 +24,18 @@ describe('ReadyOrdersComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it ('should call getCompletedOrder on ngOnInit', () => {
+    spyOn(component, 'getCompletedOrders');
+    component.ngOnInit();
+    expect(component.getCompletedOrders).toHaveBeenCalled();
+  });
+
+  it ('should emit false when onCloseClick is called', () => {
+    spyOn(component.closeOrder, 'emit');
+    component.onCloseClick();
+    expect(component.closeOrder.emit).toHaveBeenCalledWith(false);
+  });
+
   it ('should get completed orders', () => {
     const order = [{id: 1, status: 'completed'}]
     component.getCompletedOrders();
