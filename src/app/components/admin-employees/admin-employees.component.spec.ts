@@ -61,14 +61,14 @@ describe('AdminEmployeesComponent', () => {
   it ('should update users data', () => {
     const user = {id: 1, name: 'Eliana'};
     component.updateUsersData(user);
-    const req = httpMock.expectOne(`http://localhost:8080/users/${user.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/users/${user.id}`);
     expect(req.request.method).toBe('PATCH');
   });
 
   it ('sould delete an user of API', () => {
     const user = {id: 1, name: 'Eliana'};
     component.deleteUser(user);
-    const req = httpMock.expectOne(`http://localhost:8080/users/${user.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/users/${user.id}`);
     expect(req.request.method).toBe('DELETE');
   });
 
@@ -90,7 +90,7 @@ describe('AdminEmployeesComponent', () => {
       email: 'admin2@burguercooked.com',
       password: '123456'
     };
-    const apiUrlUsers = 'http://localhost:8080/users';
+    const apiUrlUsers = 'https://burger-queen-api-mock-lac.vercel.app/users';
     component.employeeData = { ...employeeData };
     component.selectedPosition = 'waiter';
     component.registerEmployees()

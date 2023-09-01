@@ -35,7 +35,7 @@ describe('MenuComponent', () => {
       {id: 1, name: 'HotDog', type: 'Almoço'}
     ];
     component.getProducts();
-    const req = httpMock.expectOne('http://localhost:8080/products');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/products');
     req.flush(products); 
     expect(component.products).toEqual(products);
     expect(req.request.method).toBe('GET');

@@ -82,7 +82,7 @@ describe('OrderComponent', () => {
   it ('should send orders to Api and reset values', () => {
     component.addedProducts = [{ product: { name: 'HotDog' }, quantity: 2 }];
     component.sendOrderToAPI();
-    const req = httpMock.expectOne('http://localhost:8080/orders');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/orders');
     req.flush({});
     expect(req.request.method).toBe('POST');
     expect(component.sentToKitchen).toBe(true);
