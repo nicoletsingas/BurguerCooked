@@ -19,7 +19,7 @@ export class AuthService {
       localStorage.setItem('token', response.accessToken); 
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userRole', response.user.role);
-      localStorage.setItem('username', response.user.name)
+      localStorage.setItem('username', response.user.name);
       return true;
     } else {
       throw new Error('Login inválido');
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   getUsername(): string | null {
-    return localStorage.getItem('username')
+    return localStorage.getItem('username');
   }
 
 }

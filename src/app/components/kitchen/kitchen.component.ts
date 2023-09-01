@@ -44,7 +44,7 @@ export class KitchenComponent implements OnInit{
         this.showImage = this.pendingOrders.length === 0;
       },
       (error) => {
-        console.error('Erro ao buscar pedidos', error)
+        console.error('Erro ao buscar pedidos', error);
       });
     } else {
       console.error('Token de autenticação não encontrado.');

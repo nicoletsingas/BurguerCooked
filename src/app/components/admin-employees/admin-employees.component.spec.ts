@@ -93,7 +93,7 @@ describe('AdminEmployeesComponent', () => {
     const apiUrlUsers = 'https://burger-queen-api-mock-lac.vercel.app/users';
     component.employeeData = { ...employeeData };
     component.selectedPosition = 'waiter';
-    component.registerEmployees()
+    component.registerEmployees();
     const req = httpMock.expectOne(apiUrlUsers);
     expect(req.request.method).toBe('POST');
   });
