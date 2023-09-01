@@ -39,7 +39,7 @@ describe('ReadyOrdersComponent', () => {
   it ('should get completed orders', () => {
     const order = [{id: 1, status: 'completed'}]
     component.getCompletedOrders();
-    const req = httpMock.expectOne('http://localhost:8080/orders');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/orders');
     req.flush(order);
 
     expect(req.request.method).toBe('GET');
@@ -50,7 +50,7 @@ describe('ReadyOrdersComponent', () => {
     const order = {id: 1, status: 'completed'}
     spyOn(component, 'moveOrderToDeliveredList');
     component.orderDelivered(order);
-    const req = httpMock.expectOne(`http://localhost:8080/orders/${order.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/orders/${order.id}`);
     req.flush({});
 
     expect(req.request.method).toBe('PATCH');

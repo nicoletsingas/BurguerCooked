@@ -30,7 +30,7 @@ describe('AdminProductsComponent', () => {
   it ('should get all products of API', () => {
     const products = [{id: 1, name: 'bolacha', price: 2 }];
     component.getProducts();
-    const req = httpMock.expectOne(`http://localhost:8080/products`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/products`);
     req.flush(products);
     expect(component.products).toEqual(products)
     expect(req.request.method).toBe('GET');
@@ -53,14 +53,14 @@ describe('AdminProductsComponent', () => {
   it ('should update products data', () => {
     const product = {id: 1, name: 'bolacha', price: 2 }
     component.updateProductsData(product);
-    const req = httpMock.expectOne(`http://localhost:8080/products/${product.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/products/${product.id}`);
     expect(req.request.method).toBe('PATCH');
   });
 
   it ('should delete a products of API', () => {
     const product = {id: 1, name: 'bolacha', price: 2 }
     component.deleteProduct(product);
-    const req = httpMock.expectOne(`http://localhost:8080/products/${product.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/products/${product.id}`);
     expect(req.request.method).toBe('DELETE');
   });
 
@@ -88,7 +88,7 @@ describe('AdminProductsComponent', () => {
     component.productsData = { ...productsData };
     component.selectedType = 'Almoço';
     component.registerProducts()
-    const req = httpMock.expectOne('http://localhost:8080/products');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/products');
     expect(req.request.method).toBe('POST');
   });
 

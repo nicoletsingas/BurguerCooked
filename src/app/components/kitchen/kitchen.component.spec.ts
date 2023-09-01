@@ -26,7 +26,7 @@ describe('KitchenComponent', () => {
   it ('should get all pending orders from API', () => {
     const pendingOrders = [{id: 1, status: 'pending'}]
     component.getPendingOrders();
-    const req = httpMock.expectOne('http://localhost:8080/orders');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/orders');
     req.flush(pendingOrders);
     expect(component.pendingOrders).toEqual(pendingOrders)
     expect(req.request.method).toBe('GET');
@@ -34,7 +34,7 @@ describe('KitchenComponent', () => {
 
   it ('should handle error when cant get pending orders', () => {
     component.getPendingOrders();
-    const req = httpMock.expectOne('http://localhost:8080/orders');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/orders');
     req.error(new ErrorEvent('Erro ao buscar pedidos pendentes'));
     expect(component.pendingOrders).toEqual([]);
   });
@@ -43,7 +43,7 @@ describe('KitchenComponent', () => {
     const order = {id: 1, status: 'pending'}
     spyOn(component, 'moveOrderToCompletedList');
     component.markOrderAsCompleted(order);
-    const req = httpMock.expectOne(`http://localhost:8080/orders/${order.id}`);
+    const req = httpMock.expectOne(`https://burger-queen-api-mock-lac.vercel.app/orders/${order.id}`);
     req.flush({});
     expect(req.request.method).toBe('PATCH');
     expect(component.moveOrderToCompletedList).toHaveBeenCalledWith(order);
@@ -63,7 +63,7 @@ describe('KitchenComponent', () => {
   it ('should get the completed orders list', () => {
     const order = [{id: 1, status: 'completed'}]
     component.getCompletedOrders();
-    const req = httpMock.expectOne('http://localhost:8080/orders');
+    const req = httpMock.expectOne('https://burger-queen-api-mock-lac.vercel.app/orders');
     req.flush(order);
     expect(req.request.method).toBe('GET');
     expect(component.completedOrders).toEqual(order);
