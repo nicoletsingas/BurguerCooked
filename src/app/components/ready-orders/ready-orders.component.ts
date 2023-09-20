@@ -42,7 +42,7 @@ export class ReadyOrdersComponent implements OnInit {
         Authorization: `Bearer ${token}`
       });
 
-      this.http.get<any>('https://burger-queen-api-mock-lac.vercel.app/orders', { headers }).subscribe((response) => {
+      this.http.get<any>('https://sap-010-burger-queen-api-zzom.vercel.app/orders', { headers }).subscribe((response) => {
         this.completedOrders = response.filter((order: Order) => order.status === 'completed' && order.orderDelivered !== 'delivered');
       },
       (error) => {
@@ -66,7 +66,7 @@ export class ReadyOrdersComponent implements OnInit {
         orderDelivered: 'delivered'
       };
 
-      this.http.patch<any>(`https://burger-queen-api-mock-lac.vercel.app/orders/${order.id}`, updatedOrder, {headers}).subscribe(() => {
+      this.http.patch<any>(`https://sap-010-burger-queen-api-zzom.vercel.app/orders/${order.id}`, updatedOrder, {headers}).subscribe(() => {
         this.moveOrderToDeliveredList(order);
       },
       (error) => {

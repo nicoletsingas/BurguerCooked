@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  public apiUrl = 'https://burger-queen-api-mock-lac.vercel.app/login';
+  public apiUrl = 'https://sap-010-burger-queen-api-zzom.vercel.app/login';
 
   constructor(private http: HttpClient, private router: Router) { }
 
