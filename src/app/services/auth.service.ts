@@ -12,8 +12,10 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   async login (email: string, password: string): Promise<boolean> {
+    console.log('teste')
     const userLogin = { email, password }
     const response = await firstValueFrom(this.http.post<any>(this.apiUrl, userLogin));
+    console.log('entrou na função', response)
 
     if (response.accessToken) {
       localStorage.setItem('token', response.accessToken); 
@@ -22,6 +24,7 @@ export class AuthService {
       localStorage.setItem('username', response.user.name);
       return true;
     } else {
+      console.log('caiu no else')
       throw new Error('Login inválido');
     }
   }
