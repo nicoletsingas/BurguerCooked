@@ -20,8 +20,8 @@ export class AuthService {
     if (response.token) {
       localStorage.setItem('token', response.token); 
       localStorage.setItem('userEmail', email);
-      localStorage.setItem('userRole', response.user.role);
-      localStorage.setItem('username', response.user.name);
+      localStorage.setItem('userRole', response.role);
+      localStorage.setItem('username', response.name);
       return true;
     } else {
       console.log('caiu no else')
