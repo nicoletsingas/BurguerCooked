@@ -17,8 +17,8 @@ export class AuthService {
     const response = await firstValueFrom(this.http.post<any>(this.apiUrl, userLogin));
     console.log('entrou na função', response)
 
-    if (response.accessToken) {
-      localStorage.setItem('token', response.accessToken); 
+    if (response.token) {
+      localStorage.setItem('token', response.token); 
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userRole', response.user.role);
       localStorage.setItem('username', response.user.name);
