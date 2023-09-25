@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  public apiUrl = 'https://sap-010-burger-queen-api-zzom.vercel.app/login';
+  public apiUrl = 'https://burger-queen-api-mock-lac.vercel.app/login';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -17,11 +17,11 @@ export class AuthService {
     const response = await firstValueFrom(this.http.post<any>(this.apiUrl, userLogin));
     console.log('entrou na função', response)
 
-    if (response.token) {
-      localStorage.setItem('token', response.token); 
+    if (response.accessToken) {
+      localStorage.setItem('token', response.accessToken); 
       localStorage.setItem('userEmail', email);
-      localStorage.setItem('userRole', response.role);
-      localStorage.setItem('username', response.name);
+      localStorage.setItem('userRole', response.user.role);
+      localStorage.setItem('username', response.user.name);
       return true;
     } else {
       console.log('caiu no else')

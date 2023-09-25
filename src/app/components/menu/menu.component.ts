@@ -1,10 +1,18 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Subscription } from 'rxjs';
 import { BREAKPOINT } from '../constants';
 import { ResizeService } from 'src/app/services/resize.service';
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  type: string;
+  details: string;
+};
 
 @Component({
   selector: 'app-menu',
@@ -12,17 +20,15 @@ import { ResizeService } from 'src/app/services/resize.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, OnDestroy{
-  
-  products: any[] = []; 
+  products: Product[] = []; 
   currentProductType: string = 'Café da manhã'; 
-  filteredProducts: any[] = [];
-  productQuantities: { [productId: number ]: number} = {};
+  filteredProducts: Product[] = [];
+  productQuantities: { [productId: number]: number } = {};
   private productQuantitiesSubscription: Subscription = Subscription.EMPTY;
   isAboveBreakpoint: boolean = false;
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
     public orderService: OrderService,
     private resizeService: ResizeService
   ) {}
@@ -47,7 +53,7 @@ export class MenuComponent implements OnInit, OnDestroy{
     const token = localStorage.getItem('token');
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = 'https://sap-010-burger-queen-api-zzom.vercel.app/products';
+      const apiUrlProducts = 'https://burger-queen-api-mock-lac.vercel.app/products';
       this.http.get<any[]>(apiUrlProducts, { headers }).subscribe((data) => {
         this.products = data;
         this.filterProductsByType(this.currentProductType);

@@ -102,7 +102,7 @@ export class AdminProductsComponent implements OnInit {
     
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const apiUrlProducts = `https://sap-010-burger-queen-api-zzom.vercel.app/products`;
+      const apiUrlProducts = `https://burger-queen-api-mock-lac.vercel.app/products`;
       const data = {
         ...this.productsData,
         type: this.selectedType
