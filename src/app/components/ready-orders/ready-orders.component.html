@@ -15,14 +15,16 @@
         </div>
       </div>
       <span class="waiter-name">Atendente: {{ order.waiter }}</span>
-      <div class="title-quant-order flexbox">
-        <span class="red-title">Pedido</span>
-        <span class="red-title">Quant.</span>
-      </div>
-      <div *ngFor="let product of order.products" class="order-details flexbox">
-        <span class="order-data">{{ product.name }}</span>
-        <span class="order-data quantity-data">{{ product.quantity }}</span>
-      </div>
+        <div class="title-quant-order flexbox">
+          <span class="red-title">Pedido</span>
+          <span class="red-title">Quant.</span>
+        </div>
+        <div class="div-order">
+          <div *ngFor="let product of order.products" class="order-details flexbox">
+            <span class="order-data">{{ product.name }}</span>
+            <span class="order-data quantity-data">{{ product.quantity }}</span>
+          </div>
+        </div>
       <span class="time-completed">Concluido em: {{ order.completedDate }}</span>
       <button (click)="orderDelivered(order)">Entregue</button>
     </div>

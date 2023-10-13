@@ -44,6 +44,7 @@
 
 .order-number{
     margin-top: 10px;
+    height: 30px;
 }
 
 .red-title{
@@ -71,9 +72,15 @@
     justify-content: space-between;
 }
 
+.div-order{
+    width: 100%;
+    height: 150px;
+}
+
 .order-details{
     justify-content: space-between;
     width: 100%;
+    height: 30px;
 }
 
 .order-data{

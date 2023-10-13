@@ -25,9 +25,11 @@
         <span class="red-title">Pedido</span>
         <span class="red-title">Quant.</span>
       </div>
-      <div *ngFor="let product of order.products" class="order-details flexbox">
-        <span class="order-data">{{ product.name }}</span>
-        <span class="order-data quantity-data">{{ product.quantity }}</span>
+      <div class="div-order flexbox-column">
+        <div *ngFor="let product of order.products" class="order-details flexbox">
+          <span class="order-data">{{ product.name }}</span>
+          <span class="order-data quantity-data">{{ product.quantity }}</span>
+        </div>
       </div>
       <button (click)="markOrderAsCompleted(order)" class="btn-ready-orders">Pronto</button>
     </section>
@@ -50,9 +52,11 @@
         <span class="red-title">Pedido</span>
         <span class="red-title">Quant.</span>
       </div>
-      <div *ngFor="let product of order.products" class="order-details flexbox">
-        <span class="order-data">{{ product.name }}</span>
-        <span class="order-data quantity-data">{{ product.quantity }}</span>
+      <div class="div-order flexbox-column">
+        <div *ngFor="let product of order.products" class="order-details flexbox">
+          <span class="order-data">{{ product.name }}</span>
+          <span class="order-data quantity-data">{{ product.quantity }}</span>
+        </div>
       </div>
       <span class="time-completed">Concluido em: {{ order.completedDate }}</span>
     </div>
